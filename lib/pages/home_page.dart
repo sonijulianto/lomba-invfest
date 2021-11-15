@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
 import 'package:lomba/pages/aksi_page.dart';
 import 'package:lomba/pages/materi_page.dart';
+import 'package:lomba/widgets/custom_dialog.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -123,16 +126,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                         ScaleTransition(
                           scale: _animation1,
-                          child: Container(
-                            width: 43,
-                            height: 43,
-                            decoration: BoxDecoration(
-                              color: whiteColor,
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.blue.shade300,
+                          child: GestureDetector(
+                            onTap: () {
+                              customDialog(context, 'Peringatan',
+                                  'Apakah anda yakin ingin keluar?');
+                            },
+                            child: Container(
+                              width: 43,
+                              height: 43,
+                              decoration: BoxDecoration(
+                                color: whiteColor,
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              child: Icon(
+                                Icons.close,
+                                color: Colors.blue.shade300,
+                              ),
                             ),
                           ),
                         ),

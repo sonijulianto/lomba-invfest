@@ -90,6 +90,8 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
                       height: 30,
                     ),
                     AksiCard(
+                      height: 120,
+                      width: double.infinity,
                       animation: _animation,
                       image: 'assets/perlindungan-covid.jpg',
                       title: 'Program QnA',
@@ -110,6 +112,8 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
                       height: 40,
                     ),
                     AksiCard(
+                      width: double.infinity,
+                      height: 120,
                       animation: _animation1,
                       image: 'assets/perlindungan-covid.jpg',
                       title: 'Program Blusukan',

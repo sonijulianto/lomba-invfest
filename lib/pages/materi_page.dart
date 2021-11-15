@@ -2,6 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
+import 'package:lomba/pages/pelatihan_definisi.dart';
+import 'package:lomba/pages/pelatihan_gejala.dart';
+import 'package:lomba/pages/pelatihan_vaksin.dart';
+import 'package:lomba/widgets/aksi_card.dart';
 
 class MateriPage extends StatefulWidget {
   MateriPage({Key? key}) : super(key: key);
@@ -53,6 +57,15 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
   );
 
   @override
+  void dispose() {
+    _controller.dispose();
+    _controller1.dispose();
+    _controller2.dispose();
+    _controller3.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -61,36 +74,42 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color.fromARGB(255, 30, 160, 238),
-                Color.fromARGB(255, 21, 236, 229),
-                Color.fromARGB(255, 255, 230, 238),
-              ],
-            )),
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 24,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.fromARGB(255, 30, 160, 238),
+                  Color.fromARGB(255, 21, 236, 229),
+                  Color.fromARGB(255, 255, 230, 238),
+                ],
               ),
+            ),
+            child: Container(
+              // padding: EdgeInsets.symmetric(
+              //   horizontal: 24,
+              // ),
               child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: 24,
+                    ),
                     child: GestureDetector(
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        margin: EdgeInsets.symmetric(vertical: 20),
-                        decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(30)),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: whiteColor,
+                          size: 50,
+                        ),
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 60,
                   ),
                   Center(
                     child: ScaleTransition(
@@ -106,112 +125,71 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
                   SizedBox(
                     height: 30,
                   ),
-                  ScaleTransition(
-                    scale: _animation,
-                    child: Container(
-                      width: 270,
-                      height: 180,
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(17),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(17),
-                                  topRight: Radius.circular(17)),
-                            ),
-                          ),
-                          Container(
-                            height: double.infinity,
-                            width: double.infinity,
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Devinisi dan Varian COVID-19',
-                                  style: blackTextStyle,
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 30,
                     ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  ScaleTransition(
-                    scale: _animation1,
-                    child: Container(
-                      width: 270,
-                      height: 180,
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(17),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(colors: [
-                                Colors.green,
-                                Colors.blue,
-                                Colors.white
-                              ]),
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(17),
-                                  topRight: Radius.circular(17)),
-                            ),
-                          )
-                        ],
-                      ),
+                    child: Row(
+                      children: [
+                        AksiCard(
+                          height: 110,
+                          width: 250,
+                          ontap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PelatihanDefinisi()));
+                          },
+                          animation: _animation,
+                          image: 'assets/covid.jpg',
+                          title: 'Devinisi dan Varian COVID-19',
+                          description:
+                              'Apa perbedaan Corona dan COVID-19? Terlintas berita mengenai varian virus, apa saja?',
+                          style: blackTextStyle.copyWith(fontWeight: bold),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        AksiCard(
+                          height: 110,
+                          width: 250,
+                          ontap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PelatihanGejala()));
+                          },
+                          animation: _animation2,
+                          image: 'assets/perawatan.jpg',
+                          title: 'Gejala dan Perawatan',
+                          description:
+                              'Kabarnya, tiap pasien COVID-19 memiliki gejala yang berbeda-beda, seperti apa? Lalu, bagaimana perawatannya?',
+                          style: blackTextStyle.copyWith(fontWeight: bold),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        AksiCard(
+                          height: 110,
+                          width: 250,
+                          ontap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PelatihanVaksin()));
+                          },
+                          animation: _animation1,
+                          image: 'assets/vaksin.jpg',
+                          title: 'Prokes dan Vaksinasi',
+                          description:
+                              'Indonesia menerapkan sebuah prokes yang harus dilakukan, seperti apa saja? Kabar mengenai vaksinasi, bagaimana?',
+                          style: blackTextStyle.copyWith(fontWeight: bold),
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  ScaleTransition(
-                    scale: _animation2,
-                    child: Container(
-                      width: 270,
-                      height: 180,
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(17),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(colors: [
-                                Colors.green,
-                                Colors.blue,
-                                Colors.white
-                              ]),
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(17),
-                                  topRight: Radius.circular(17)),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
+                  )
                 ],
               ),
             ),

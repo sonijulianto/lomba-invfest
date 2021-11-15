@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lomba/common/theme.dart';
 
 class ChatGambar extends StatelessWidget {
   final String gambar;
