@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:lomba/theme.dart';
+import 'package:lomba/common/theme.dart';
 
 class SplashPageOne extends StatefulWidget {
   const SplashPageOne({Key? key}) : super(key: key);
@@ -27,12 +27,13 @@ class _SplashPageOneState extends State<SplashPageOne> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(width: 200, height: 100, color: primaryColor),
+              Container(width: 200, height: 100, color: Colors.blue),
               SizedBox(
                 height: 30,
               ),
               Text(
                 'Nama Aplikasi',
+                style: blackTextStyle,
               ),
             ],
           ),

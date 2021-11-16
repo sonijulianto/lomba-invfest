@@ -44,8 +44,7 @@ class _SplashPageTwoState extends State<SplashPageTwo>
             width: 120,
             height: 40,
             decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/invfest.png')),
+              image: DecorationImage(image: AssetImage('assets/invfest.png')),
             )),
       ),
     ));

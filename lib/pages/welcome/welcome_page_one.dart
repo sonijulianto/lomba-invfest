@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:lomba/common/theme.dart';
 
 class WelcomePageOne extends StatefulWidget {
   const WelcomePageOne({Key? key}) : super(key: key);
@@ -37,14 +38,26 @@ class _WelcomePageOneState extends State<WelcomePageOne>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FadeTransition(
-        opacity: _animation,
-        child: Center(
-          child: Container(
-            child: Text(
-              'Di sebuah desa di indonesia yang sedang dilanda pandemi',
-              style: TextStyle(fontSize: 20),
-              textAlign: TextAlign.center,
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color.fromARGB(255, 25, 178, 238),
+            Color.fromARGB(255, 21, 236, 229),
+            Color.fromARGB(255, 255, 236, 229),
+          ],
+        )),
+        child: FadeTransition(
+          opacity: _animation,
+          child: Center(
+            child: Container(
+              child: Text(
+                'Di sebuah desa di indonesia yang sedang dilanda pandemi',
+                style: whiteTextStyle.copyWith(fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ),
