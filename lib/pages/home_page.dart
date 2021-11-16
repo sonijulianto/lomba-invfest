@@ -1,15 +1,20 @@
-// import 'package:audioplayers/audioplayers.dart';
+
 import 'dart:async';
 
 import 'package:animate_do/animate_do.dart';
 import 'package:audioplayers/audioplayers.dart';
+
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
 import 'package:lomba/helper/user_info.dart';
 import 'package:lomba/pages/aksi_page.dart';
 import 'package:lomba/pages/information_page.dart';
 import 'package:lomba/pages/materi_page.dart';
+
+import 'package:lomba/widgets/custom_dialog.dart';
+
 import 'package:lomba/pages/welcome/welcome_name.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.name}) : super(key: key);
@@ -179,14 +184,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ScaleTransition(
                           scale: _animation1,
                           child: GestureDetector(
-                            onTap: () async => await UserInfo().logout().then(
-                                  (value) => Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => WelcomeName(),
-                                    ),
-                                  ),
-                                ),
+
+                            onTap: () {
+                              customDialog(context, 'Peringatan',
+                                  'Apakah anda yakin ingin keluar?');
+                            },
+
                             child: Container(
                               width: 43,
                               height: 43,

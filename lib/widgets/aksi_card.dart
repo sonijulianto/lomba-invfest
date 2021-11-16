@@ -8,6 +8,8 @@ class AksiCard extends StatelessWidget {
   final String title;
   final String description;
   final TextStyle style;
+  final double width;
+  final double height;
   AksiCard({
     Key? key,
     required this.ontap,
@@ -16,6 +18,8 @@ class AksiCard extends StatelessWidget {
     required this.title,
     required this.description,
     required this.style,
+    required this.width,
+    required this.height,
   }) : super(key: key);
 
   @override
@@ -25,7 +29,7 @@ class AksiCard extends StatelessWidget {
       child: ScaleTransition(
         scale: animation,
         child: Container(
-          width: double.infinity,
+          width: width,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
             color: Colors.white,
@@ -48,6 +52,7 @@ class AksiCard extends StatelessWidget {
                 ),
               ),
               Container(
+                height: height,
                 padding: EdgeInsets.symmetric(
                   horizontal: 10,
                   vertical: 5,

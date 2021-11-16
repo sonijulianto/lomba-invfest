@@ -74,15 +74,41 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              Column(
-                children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'PILIH AKSI',
-                    style: blackTextStyle.copyWith(
-                      fontSize: 26,
+
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'PILIH AKSI',
+                      style: blackTextStyle.copyWith(
+                        fontSize: 26,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    AksiCard(
+                      height: 120,
+                      width: double.infinity,
+                      animation: _animation,
+                      image: 'assets/perlindungan-covid.jpg',
+                      title: 'Program QnA',
+                      description:
+                          'Duta Covidiolog akan menjalankan aksinya dalam sosialisasi dan tanya jawab bersama warga melalui apliksi perpesanan, dapatkah kamu menyebarkan informasi dengan tepat?',
+                      style: greenTextStyle.copyWith(
+                        fontSize: 18,
+                        fontWeight: bold,
+                      ),
+                      ontap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LokasiPage()));
+                      },
+
                     ),
                   ),
                   SizedBox(
@@ -98,26 +124,26 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
                       fontSize: 18,
                       fontWeight: bold,
                     ),
-                    ontap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LokasiPage()));
-                    },
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  AksiCard(
-                    animation: _animation1,
-                    image: 'assets/perlindungan-covid.jpg',
-                    title: 'Program Blusukan',
-                    description:
-                        'Duta Covidiolog akan menjalankan aksinya dalam menanggapi kasus protokol kesehatan yang terjadi di lingkungan warga. dapatkah kamu menanggapi merekadengan baik?',
-                    style: blueTextStyle.copyWith(
-                      fontSize: 18,
-                      fontWeight: bold,
-                    ),
+
+                    AksiCard(
+                      width: double.infinity,
+                      height: 120,
+                      animation: _animation1,
+                      image: 'assets/perlindungan-covid.jpg',
+                      title: 'Program Blusukan',
+                      description:
+                          'Duta Covidiolog akan menjalankan aksinya dalam menanggapi kasus protokol kesehatan yang terjadi di lingkungan warga. dapatkah kamu menanggapi merekadengan baik?',
+                      style: blueTextStyle.copyWith(
+                        fontSize: 18,
+                        fontWeight: bold,
+                      ),
+                      ontap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LokasiPage()));
+                      },
+
                     ontap: () {
                       Navigator.push(
                           context,
