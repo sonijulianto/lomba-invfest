@@ -1,13 +1,17 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
 
 class ChatCard extends StatelessWidget {
-  final bool jawaban;
+  String people;
+  bool? jawaban;
   final String message;
   final AlignmentGeometry alignment;
-  const ChatCard({
+  ChatCard({
     Key? key,
-    required this.jawaban,
+    required this.people,
+    this.jawaban = false,
     required this.message,
     required this.alignment,
   }) : super(key: key);
@@ -17,7 +21,7 @@ class ChatCard extends StatelessWidget {
     return Align(
       alignment: alignment,
       child: Container(
-        width: jawaban
+        width: jawaban!
             ? MediaQuery.of(context).size.width * 0.9
             : MediaQuery.of(context).size.width * 0.7,
         padding: EdgeInsets.symmetric(
@@ -59,10 +63,11 @@ class ChatCard extends StatelessWidget {
             alignment == Alignment.bottomRight
                 ? SizedBox()
                 : Text(
-                    'Kak Restu - Toko Kain',
+                    people,
                     style: blueTextStyle.copyWith(
                       fontWeight: bold,
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
             Text(
               message,

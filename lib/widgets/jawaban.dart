@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lomba/common/theme.dart';
 
 class Jawaban extends StatelessWidget {
-  const Jawaban({Key? key}) : super(key: key);
+  final Color color;
+  const Jawaban({Key? key, required this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class Jawaban extends StatelessWidget {
             offset: Offset(0, 1),
           ),
         ],
-        color: whiteColor,
+        color: color,
         borderRadius: BorderRadius.circular(
           5,
         ),

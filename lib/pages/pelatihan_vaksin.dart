@@ -89,6 +89,31 @@ class _PelatihanVaksinState extends State<PelatihanVaksin>
                 ),
               ),
             ),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(
+                vertical: 5,
+                horizontal: 10,
+              ),
+              decoration: BoxDecoration(
+                color: whiteColor,
+                // borderRadius: BorderRadius.vertical(
+                //   top: Radius.circular(17),
+                // ),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xff46C5FE),
+                    Color(0xff93D9F9),
+                  ],
+                ),
+              ),
+              child: Text(
+                textTutorVaksin(index),
+                style: blackTextStyle.copyWith(),
+              ),
+            ),
             Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -156,31 +181,6 @@ class _PelatihanVaksinState extends State<PelatihanVaksin>
                         ),
                       ),
               ],
-            ),
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(
-                vertical: 5,
-                horizontal: 10,
-              ),
-              decoration: BoxDecoration(
-                color: whiteColor,
-                // borderRadius: BorderRadius.vertical(
-                //   top: Radius.circular(17),
-                // ),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color(0xff46C5FE),
-                    Color(0xff93D9F9),
-                  ],
-                ),
-              ),
-              child: Text(
-                textTutorVaksin(index),
-                style: blackTextStyle.copyWith(),
-              ),
             ),
           ],
         ),
