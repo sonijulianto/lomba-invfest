@@ -55,6 +55,14 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
     parent: _controller3,
     curve: Curves.easeOutBack,
   );
+  @override
+  void dispose() {
+    _controller1.dispose();
+    _controller2.dispose();
+    _controller3.dispose();
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   void dispose() {
@@ -69,8 +77,21 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 30, 160, 238),
+              Color.fromARGB(255, 21, 236, 229),
+              Color.fromARGB(255, 255, 230, 238),
+            ],
+          )),
           child: Container(
+
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -192,6 +213,7 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
                   )
                 ],
               ),
+
             ),
           ),
         ),

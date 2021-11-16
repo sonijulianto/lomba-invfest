@@ -56,7 +56,7 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          child: Column(
+          child: ListView(
             children: [
               SizedBox(
                 height: 20,
@@ -74,6 +74,7 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
+
               SingleChildScrollView(
                 child: Column(
                   children: [
@@ -107,10 +108,23 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
                             MaterialPageRoute(
                                 builder: (context) => LokasiPage()));
                       },
+
                     ),
-                    SizedBox(
-                      height: 40,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  AksiCard(
+                    animation: _animation,
+                    image: 'assets/perlindungan-covid.jpg',
+                    title: 'Program QnA',
+                    description:
+                        'Duta Covidiolog akan menjalankan aksinya dalam sosialisasi dan tanya jawab bersama warga melalui apliksi perpesanan, dapatkah kamu menyebarkan informasi dengan tepat?',
+                    style: greenTextStyle.copyWith(
+                      fontSize: 18,
+                      fontWeight: bold,
                     ),
+
                     AksiCard(
                       width: double.infinity,
                       height: 120,
@@ -129,9 +143,15 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
                             MaterialPageRoute(
                                 builder: (context) => LokasiPage()));
                       },
-                    ),
-                  ],
-                ),
+
+                    ontap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LokasiPage()));
+                    },
+                  )
+                ],
               ),
             ],
           ),
