@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
+import 'package:lomba/pages/alun_qna_page.dart';
 import 'package:lomba/pages/pasar_qna_page.dart';
 import 'package:lomba/widgets/lokasi_card.dart';
 
@@ -105,7 +106,12 @@ class _LokasiPageState extends State<LokasiPage> with TickerProviderStateMixin {
                       description:
                           'Alun-Alun                                                         ',
                       animation: _animation,
-                      ontap: () {},
+                      ontap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AlunQnaPage()));
+                      },
                     ),
                     LokasiCard(
                       image: 'assets/pedesaan.jpg',
