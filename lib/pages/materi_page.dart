@@ -65,15 +65,6 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
   }
 
   @override
-  void dispose() {
-    _controller.dispose();
-    _controller1.dispose();
-    _controller2.dispose();
-    _controller3.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -91,7 +82,6 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
             ],
           )),
           child: Container(
-
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -213,7 +203,6 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
                   )
                 ],
               ),
-
             ),
           ),
         ),

@@ -1,10 +1,12 @@
 pedesaanDelapan(int pedesaanDelapan) {
-  String a = '';
-  String b = '';
-  String c = '';
-  String d = '';
-  String e = '';
-  String pertanyaan = '';
+  //a
+  String a = 'COVID-19 merupakan singkaatan dari Corona Virus Disease';
+  String b = 'COVID-19 merupakan singkaatan dari nCov Virus Disease';
+  String c = 'COVID-19 merupakan singkaatan dari Corona Virus Diseases';
+  String d = 'COVID-19 merupakan singkaatan dari Corona Virtual Disease';
+  String e = 'COVID-19 merupakan singkaatan dari nCov Virus Disease';
+  String pertanyaan =
+      '(Ibu Yektana - Desa Tahunan RT 11/02) Permisi kak, mau tanya nih. Apa sih kak kepanjangan dari COVID-19 itu ?';
   switch (pedesaanDelapan) {
     case 1:
       return a;

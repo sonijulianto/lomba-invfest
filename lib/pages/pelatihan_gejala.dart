@@ -72,7 +72,7 @@ class _PelatihanGejalaState extends State<PelatihanGejala>
             ],
           ),
         ),
-        child: Column(
+        child: ListView(
           children: [
             ScaleTransition(
               scale: _animation2,
@@ -129,14 +129,11 @@ class _PelatihanGejalaState extends State<PelatihanGejala>
                           },
                           child: Icon(
                             Icons.navigate_before_rounded,
-                            size: 100,
+                            size: 90,
                             color: whiteColor,
                           ),
                         ),
                       ),
-                SizedBox(
-                  width: 30,
-                ),
                 index == 20
                     ? SizedBox()
                     : ScaleTransition(
@@ -150,7 +147,7 @@ class _PelatihanGejalaState extends State<PelatihanGejala>
                           },
                           child: Icon(
                             Icons.navigate_next_rounded,
-                            size: 100,
+                            size: 90,
                             color: whiteColor,
                           ),
                         ),
