@@ -26,7 +26,7 @@ class _WelcomePageTwoState extends State<WelcomePageTwo>
   @override
   void initState() {
     Timer(Duration(seconds: 4), () {
-      check();
+      Navigator.pushNamedAndRemoveUntil(context, '/sign_up', (route) => false);
     });
     super.initState();
   }
@@ -37,16 +37,16 @@ class _WelcomePageTwoState extends State<WelcomePageTwo>
     super.dispose();
   }
 
-  check() async {
-    var getName = await UserInfo().getName();
-    if (getName != null) {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => HomePage(name: getName)));
-    } else {
-      Navigator.pushNamedAndRemoveUntil(
-          context, '/welcome_name', (route) => false);
-    }
-  }
+  // check() async {
+  //   var getName = await UserInfo().getName();
+  //   if (getName != null) {
+  //     Navigator.pushReplacement(context,
+  //         MaterialPageRoute(builder: (context) => HomePage(name: getName)));
+  //   } else {
+  //     Navigator.pushNamedAndRemoveUntil(
+  //         context, '/welcome_name', (route) => false);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

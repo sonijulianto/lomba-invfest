@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "68427320943",
+    "project_id": "emosi-c7f1d",
+    "storage_bucket": "emosi-c7f1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68427320943:android:b33b477cf6c660b645479a",
+        "android_client_info": {
+          "package_name": "com.emosi.lomba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68427320943-k9u2j32dra93393heq5t8ravnvhvghif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd6OmE-Sef24c0dZn1Gel5w06xkBablK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68427320943-k9u2j32dra93393heq5t8ravnvhvghif.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

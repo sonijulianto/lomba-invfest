@@ -1,24 +1,25 @@
-
 import 'dart:async';
 
 import 'package:animate_do/animate_do.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lomba/common/theme.dart';
 import 'package:lomba/helper/user_info.dart';
 import 'package:lomba/pages/aksi_page.dart';
+import 'package:lomba/pages/cubit/auth_cubit.dart';
 import 'package:lomba/pages/information_page.dart';
 import 'package:lomba/pages/materi_page.dart';
 
 import 'package:lomba/widgets/custom_dialog.dart';
 
-import 'package:lomba/pages/welcome/welcome_name.dart';
-
+import 'package:lomba/pages/welcome/sign_up_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.name}) : super(key: key);
-  final String name;
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -181,28 +182,47 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             ),
                           ],
                         ),
-                        ScaleTransition(
-                          scale: _animation1,
-                          child: GestureDetector(
-
-                            onTap: () {
-                              customDialog(context, 'Peringatan',
-                                  'Apakah anda yakin ingin keluar?');
-                            },
-
-                            child: Container(
-                              width: 43,
-                              height: 43,
-                              decoration: BoxDecoration(
-                                color: whiteColor,
-                                borderRadius: BorderRadius.circular(25),
+                        BlocConsumer<AuthCubit, AuthState>(
+                          listener: (context, state) {
+                            if (state is AuthFailed) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  backgroundColor: Colors.pink,
+                                  content: Text(state.error),
+                                ),
+                              );
+                            } else if (state is AuthInitial) {
+                              Navigator.pushNamedAndRemoveUntil(
+                                  context, '/', (route) => false);
+                            }
+                          },
+                          builder: (context, state) {
+                            if (state is AuthLoading) {
+                              return Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            }
+                            return ScaleTransition(
+                              scale: _animation1,
+                              child: GestureDetector(
+                                onTap: () {
+                                  context.read<AuthCubit>().signOut();
+                                },
+                                child: Container(
+                                  width: 43,
+                                  height: 43,
+                                  decoration: BoxDecoration(
+                                    color: whiteColor,
+                                    borderRadius: BorderRadius.circular(25),
+                                  ),
+                                  child: Icon(
+                                    Icons.close,
+                                    color: Colors.blue.shade300,
+                                  ),
+                                ),
                               ),
-                              child: Icon(
-                                Icons.close,
-                                color: Colors.blue.shade300,
-                              ),
-                            ),
-                          ),
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -445,24 +465,32 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       SizedBox(
                         width: 10,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            widget.name,
-                            style: blackTextStyle.copyWith(
-                              fontWeight: bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            'Duta Covidiolog',
-                            style: blackTextStyle.copyWith(
-                              fontSize: 16,
-                            ),
-                          )
-                        ],
+                      BlocBuilder<AuthCubit, AuthState>(
+                        builder: (context, state) {
+                          if (state is AuthSuccess) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  state.user.name,
+                                  style: blackTextStyle.copyWith(
+                                    fontWeight: bold,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                Text(
+                                  'Duta Covidiolog',
+                                  style: blackTextStyle.copyWith(
+                                    fontSize: 16,
+                                  ),
+                                )
+                              ],
+                            );
+                          } else {
+                            return SizedBox();
+                          }
+                        },
                       )
                     ],
                   ),
