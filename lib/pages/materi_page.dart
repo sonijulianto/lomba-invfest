@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/pages/pelatihan_definisi.dart';
 import 'package:lomba/pages/pelatihan_gejala.dart';
 import 'package:lomba/pages/pelatihan_vaksin.dart';
@@ -82,6 +83,7 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
             ],
           )),
           child: Container(
+            padding: EdgeInsets.only(top: 20),
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -95,114 +97,133 @@ class _MateriPageState extends State<MateriPage> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            child: Container(
-              // padding: EdgeInsets.symmetric(
-              //   horizontal: 24,
-              // ),
-              child: Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: 24,
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: whiteColor,
-                          size: 50,
-                        ),
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(
+                    left: 24,
+                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      playSound();
+                      Navigator.pop(context);
+                    },
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: whiteColor,
+                        size: 50,
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 60,
-                  ),
-                  Center(
-                    child: ScaleTransition(
-                      scale: _animation3,
-                      child: Text(
-                        'Pilih Materi Pelatihan',
-                        style: blackTextStyle.copyWith(
-                          fontSize: 24,
-                        ),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Center(
+                  child: ScaleTransition(
+                    scale: _animation3,
+                    child: Text(
+                      'Pilih Materi Pelatihan',
+                      style: blackTextStyle.copyWith(
+                        fontSize: 24,
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 30,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 30,
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 30,
+                  child: Row(
+                    children: [
+                      AksiCard(
+                        height: 110,
+                        width: 250,
+                        ontap: () {
+                          playSoundAndNext(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PelatihanDefinisi(),
+                            ),
+                          );
+                        },
+                        animation: _animation,
+                        image: 'assets/covid.jpg',
+                        title: 'Devinisi dan Varian COVID-19',
+                        description:
+                            'Apa perbedaan Corona dan COVID-19? Terlintas berita mengenai varian virus, apa saja?',
+                        style: blackTextStyle.copyWith(fontWeight: bold),
+                      ),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      AksiCard(
+                        height: 110,
+                        width: 250,
+                        ontap: () {
+                          playSoundAndNext(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PelatihanGejala(),
+                            ),
+                          );
+                        },
+                        animation: _animation2,
+                        image: 'assets/perawatan.jpg',
+                        title: 'Gejala dan Perawatan',
+                        description:
+                            'Kabarnya, tiap pasien COVID-19 memiliki gejala yang berbeda-beda, seperti apa? Lalu, bagaimana perawatannya?',
+                        style: blackTextStyle.copyWith(fontWeight: bold),
+                      ),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      AksiCard(
+                        height: 110,
+                        width: 250,
+                        ontap: () {
+                          playSoundAndNext(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PelatihanVaksin(),
+                            ),
+                          );
+                        },
+                        animation: _animation1,
+                        image: 'assets/vaksin.jpg',
+                        title: 'Prokes dan Vaksinasi',
+                        description:
+                            'Indonesia menerapkan sebuah prokes yang harus dilakukan, seperti apa saja? Kabar mengenai vaksinasi, bagaimana?',
+                        style: blackTextStyle.copyWith(fontWeight: bold),
+                      ),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: blueColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(17),
+                      topRight: Radius.circular(17),
                     ),
-                    child: Row(
-                      children: [
-                        AksiCard(
-                          height: 110,
-                          width: 250,
-                          ontap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PelatihanDefinisi()));
-                          },
-                          animation: _animation,
-                          image: 'assets/covid.jpg',
-                          title: 'Devinisi dan Varian COVID-19',
-                          description:
-                              'Apa perbedaan Corona dan COVID-19? Terlintas berita mengenai varian virus, apa saja?',
-                          style: blackTextStyle.copyWith(fontWeight: bold),
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        AksiCard(
-                          height: 110,
-                          width: 250,
-                          ontap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PelatihanGejala()));
-                          },
-                          animation: _animation2,
-                          image: 'assets/perawatan.jpg',
-                          title: 'Gejala dan Perawatan',
-                          description:
-                              'Kabarnya, tiap pasien COVID-19 memiliki gejala yang berbeda-beda, seperti apa? Lalu, bagaimana perawatannya?',
-                          style: blackTextStyle.copyWith(fontWeight: bold),
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        AksiCard(
-                          height: 110,
-                          width: 250,
-                          ontap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PelatihanVaksin()));
-                          },
-                          animation: _animation1,
-                          image: 'assets/vaksin.jpg',
-                          title: 'Prokes dan Vaksinasi',
-                          description:
-                              'Indonesia menerapkan sebuah prokes yang harus dilakukan, seperti apa saja? Kabar mengenai vaksinasi, bagaimana?',
-                          style: blackTextStyle.copyWith(fontWeight: bold),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                  ),
+                  child: Text(
+                    'Mari belajar untuk mengetahui lebih dalam tentang COVID-19',
+                    style: whiteTextStyle.copyWith(),
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              ],
             ),
           ),
         ),

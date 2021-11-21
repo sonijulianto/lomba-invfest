@@ -12,6 +12,7 @@ import 'package:lomba/functions/jawaban-alun/alun-sembilan.dart';
 import 'package:lomba/functions/jawaban-alun/alun-sepuluh.dart';
 import 'package:lomba/functions/jawaban-alun/alun-tiga.dart';
 import 'package:lomba/functions/jawaban-alun/alun-tujuh.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/widgets/chat_card.dart';
 import 'package:lomba/widgets/chat_gambar_card.dart';
 import 'package:lomba/widgets/jawaban.dart';
@@ -35,13 +36,21 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
   int jawaban8 = 0;
   int jawaban9 = 0;
   int jawaban10 = 0;
+
+  final controller = ScrollController();
+  void scrollDown() {
+    final double end = 2562.6428571428573;
+    controller.jumpTo(end);
+    print(end);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Alun-alun Bandung',
+            'Alun-alun Pati',
             style: whiteTextStyle,
           ),
           centerTitle: true,
@@ -66,13 +75,14 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                 child: Container(
                   width: double.infinity,
                   child: ListView(
+                    controller: controller,
                     children: [
                       Spacer(),
                       GestureDetector(
                         onTap: () {
                           setState(() {
+                            playSound();
                             index == 0 ? index += 1 : index += 0;
-                            print(index);
                           });
                         },
                         child: ChatCard(
@@ -85,6 +95,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                           ? GestureDetector(
                               onTap: () {
                                 setState(() {
+                                  playSound();
                                   index == 1 ? index += 1 : index += 0;
                                 });
                               },
@@ -100,6 +111,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                           ? GestureDetector(
                               onTap: () {
                                 setState(() {
+                                  playSound();
                                   index == 2 ? index += 1 : index += 0;
                                 });
                               },
@@ -113,9 +125,9 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                           ? GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  Timer(Duration(seconds: 1), () {
-                                    index == 3 ? index += 1 : index += 0;
-                                  });
+                                  soundMessage();
+                                  index == 3 ? index += 1 : index += 0;
+                                  scrollDown();
                                 });
                               },
                               child: ChatCard(
@@ -415,10 +427,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -437,10 +452,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 2;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -459,10 +477,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -481,10 +502,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -503,10 +527,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -526,10 +553,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban2 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -548,10 +578,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban2 = 2;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -570,10 +603,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -592,10 +628,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -614,10 +653,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -637,10 +679,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban3 = 1;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -659,10 +704,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban3 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -681,10 +729,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban3 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -703,10 +754,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban3 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -725,10 +779,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban3 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -748,10 +805,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -770,10 +830,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -792,10 +855,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 3;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -814,10 +880,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -836,10 +905,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -859,10 +931,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -881,10 +956,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -903,10 +981,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -925,10 +1006,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 4;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -947,10 +1031,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -970,10 +1057,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -992,10 +1082,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1014,10 +1107,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1036,10 +1132,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1058,10 +1157,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 5;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1081,10 +1183,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 1;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1103,10 +1208,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1125,10 +1233,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1147,10 +1258,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1169,10 +1283,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1192,10 +1309,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 1;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1214,10 +1334,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1236,10 +1359,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1258,10 +1384,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1280,10 +1409,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1303,10 +1435,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 1;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1325,10 +1460,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1347,10 +1485,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1369,10 +1510,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1391,10 +1535,13 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1414,6 +1561,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
@@ -1436,6 +1584,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
@@ -1458,6 +1607,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
@@ -1480,6 +1630,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 4;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
@@ -1502,6 +1653,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {

@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
 
 class ChatCard extends StatelessWidget {
+  int? index;
   String people;
   bool? jawaban;
   final String message;
   final AlignmentGeometry alignment;
   ChatCard({
     Key? key,
+    this.index,
     required this.people,
     this.jawaban = false,
     required this.message,
@@ -62,16 +64,20 @@ class ChatCard extends StatelessWidget {
           children: [
             alignment == Alignment.bottomRight
                 ? SizedBox()
-                : Text(
-                    people,
-                    style: blueTextStyle.copyWith(
-                      fontWeight: bold,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                : people != ''
+                    ? Text(
+                        people,
+                        style: blueTextStyle.copyWith(
+                          fontWeight: bold,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      )
+                    : SizedBox(),
             Text(
               message,
-              style: blackTextStyle,
+              style: index == null
+                  ? blackTextStyle
+                  : blackTextStyle.copyWith(fontWeight: semiBold),
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 
 class InformationPage extends StatefulWidget {
   const InformationPage({Key? key}) : super(key: key);
@@ -27,7 +28,6 @@ class _InformationPageState extends State<InformationPage>
   @override
   void dispose() {
     _controller4.dispose();
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -57,6 +57,7 @@ class _InformationPageState extends State<InformationPage>
                     children: [
                       GestureDetector(
                         onTap: () {
+                          playSound();
                           Navigator.pop(context);
                         },
                         child: Align(
@@ -69,32 +70,29 @@ class _InformationPageState extends State<InformationPage>
                         ),
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 30,
                       ),
                       ScaleTransition(
                         scale: _animation4,
                         child: Align(
                           alignment: Alignment.topCenter,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              height: 50,
-                              width: 200,
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: whiteColor),
-                                  color: buttonColor,
-                                  borderRadius: BorderRadius.circular(12)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Text(
-                                  'Tentang Kami',
-                                  style: blueTextStyle.copyWith(
-                                    fontWeight: bold,
-                                    fontSize: 20,
-                                  ),
-                                  textAlign: TextAlign.center,
+                          child: Container(
+                            height: 50,
+                            width: 200,
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: whiteColor),
+                                color: buttonColor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                'Tentang Kami',
+                                style: blueTextStyle.copyWith(
+                                  fontWeight: semiBold,
+                                  fontSize: 20,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
                             ),
                           ),
@@ -107,40 +105,37 @@ class _InformationPageState extends State<InformationPage>
                   ),
                   ScaleTransition(
                     scale: _animation4,
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        height: 180,
-                        width: double.infinity,
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: whiteColor),
-                            color: buttonColor,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            children: [
-                              Container(
-                                width: 170,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        'assets/perlindungan-covid.jpg'),
-                                  ),
+                    child: Container(
+                      height: 180,
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: whiteColor),
+                          color: buttonColor,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 150,
+                              height: 75,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('assets/logo.png'),
                                 ),
                               ),
-                              Text(
-                                'Permainan Edukasi simulasi menjadi influencer dalam pencegahan COVID-19 di lingkungan sekitar',
-                                style: blueTextStyle.copyWith(
-                                  fontWeight: bold,
-                                  fontSize: 15,
-                                ),
-                                textAlign: TextAlign.center,
+                            ),
+                            Spacer(),
+                            Text(
+                              'Permainan Edukasi simulasi menjadi influencer dalam pencegahan COVID-19 di lingkungan sekitar',
+                              style: blueTextStyle.copyWith(
+                                fontWeight: semiBold,
+                                fontSize: 14,
                               ),
-                            ],
-                          ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -155,35 +150,37 @@ class _InformationPageState extends State<InformationPage>
                         scale: _animation4,
                         child: Align(
                           alignment: Alignment.topCenter,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              height: 140,
-                              width: 90,
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: whiteColor),
-                                  color: buttonColor,
-                                  borderRadius: BorderRadius.circular(12)),
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 5),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      color: Colors.grey,
-                                    ),
-                                    Text(
-                                      'Soni Julianto',
-                                      style: blueTextStyle.copyWith(
-                                        fontWeight: bold,
-                                        fontSize: 11,
+                          child: Container(
+                            height: 140,
+                            width: 90,
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: whiteColor),
+                                color: buttonColor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: 90,
+                                    height: 90,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      image: DecorationImage(
+                                        image: AssetImage('assets/soni.jpeg'),
                                       ),
-                                      textAlign: TextAlign.center,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  Text(
+                                    'Soni Julianto',
+                                    style: blueTextStyle.copyWith(
+                                      fontWeight: bold,
+                                      fontSize: 11,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -193,35 +190,37 @@ class _InformationPageState extends State<InformationPage>
                         scale: _animation4,
                         child: Align(
                           alignment: Alignment.topCenter,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              height: 140,
-                              width: 90,
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: whiteColor),
-                                  color: buttonColor,
-                                  borderRadius: BorderRadius.circular(12)),
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 5),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      color: Colors.grey,
-                                    ),
-                                    Text(
-                                      'Ibnu Fajar \n Al Had',
-                                      style: blueTextStyle.copyWith(
-                                        fontWeight: bold,
-                                        fontSize: 11,
+                          child: Container(
+                            height: 140,
+                            width: 90,
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: whiteColor),
+                                color: buttonColor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: 90,
+                                    height: 90,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      image: DecorationImage(
+                                        image: AssetImage('assets/ibnu.jpeg'),
                                       ),
-                                      textAlign: TextAlign.center,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  Text(
+                                    'Ibnu Fajar \n Al Had',
+                                    style: blueTextStyle.copyWith(
+                                      fontWeight: bold,
+                                      fontSize: 11,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -231,35 +230,32 @@ class _InformationPageState extends State<InformationPage>
                         scale: _animation4,
                         child: Align(
                           alignment: Alignment.topCenter,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              height: 140,
-                              width: 90,
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: whiteColor),
-                                  color: buttonColor,
-                                  borderRadius: BorderRadius.circular(12)),
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 5),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      color: Colors.grey,
+                          child: Container(
+                            height: 140,
+                            width: 90,
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: whiteColor),
+                                color: buttonColor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: 90,
+                                    height: 90,
+                                    color: Colors.grey,
+                                  ),
+                                  Text(
+                                    'Syaugi \n Askar',
+                                    style: blueTextStyle.copyWith(
+                                      fontWeight: bold,
+                                      fontSize: 11,
                                     ),
-                                    Text(
-                                      'Syaugi \n Askar',
-                                      style: blueTextStyle.copyWith(
-                                        fontWeight: bold,
-                                        fontSize: 11,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -335,26 +331,23 @@ class _InformationPageState extends State<InformationPage>
                         scale: _animation4,
                         child: Align(
                           alignment: Alignment.topCenter,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              height: 30,
-                              width: 90,
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: whiteColor),
-                                  color: buttonColor,
-                                  borderRadius: BorderRadius.circular(12)),
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 5),
-                                child: Text(
-                                  'Developer',
-                                  style: blueTextStyle.copyWith(
-                                    fontWeight: bold,
-                                    fontSize: 11,
-                                  ),
-                                  textAlign: TextAlign.center,
+                          child: Container(
+                            height: 30,
+                            width: 90,
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: whiteColor),
+                                color: buttonColor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Text(
+                                'Developer',
+                                style: blueTextStyle.copyWith(
+                                  fontWeight: bold,
+                                  fontSize: 11,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
                             ),
                           ),
@@ -367,32 +360,47 @@ class _InformationPageState extends State<InformationPage>
                   ),
                   ScaleTransition(
                     scale: _animation4,
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        height: 120,
-                        width: double.infinity,
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: whiteColor),
-                            color: buttonColor,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            children: [
-                              Container(
-                                width: 170,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        'assets/perlindungan-covid.jpg'),
-                                  ),
+                    child: Container(
+                      height: 120,
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: whiteColor),
+                          color: buttonColor,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('assets/logo-kemenkes.png'),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                            Container(
+                              width: 70,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('assets/logo_bsi.png'),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 100,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('assets/invfest.png'),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),

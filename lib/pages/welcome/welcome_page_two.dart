@@ -52,6 +52,7 @@ class _WelcomePageTwoState extends State<WelcomePageTwo>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
             gradient: LinearGradient(
           begin: Alignment.topLeft,

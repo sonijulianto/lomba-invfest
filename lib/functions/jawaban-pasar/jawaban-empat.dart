@@ -19,7 +19,7 @@ jawabanEmpat(int jawabanEmpat) {
     case 3:
       return c;
     case 4:
-      return d;
+      return d; //benar
     case 5:
       return e;
     default:

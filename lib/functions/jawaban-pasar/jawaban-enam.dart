@@ -13,7 +13,7 @@ jawabanEnam(int jawabanEnam) {
       '(Pak Gilang - Penjahit) Saya memiliki penyakit bawaan seperti jantung dan diabetes, apakah saya diperbolehkan melakukan vaksinasi?';
   switch (jawabanEnam) {
     case 1:
-      return jawaban1;
+      return jawaban1; //benar
     case 2:
       return jawaban2;
     case 3:

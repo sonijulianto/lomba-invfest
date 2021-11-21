@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/pages/alun_qna_page.dart';
 import 'package:lomba/pages/pasar_qna_page.dart';
+import 'package:lomba/pages/pedesaan_qna_page.dart';
 import 'package:lomba/widgets/lokasi_card.dart';
 
 class LokasiPage extends StatefulWidget {
@@ -57,6 +59,7 @@ class _LokasiPageState extends State<LokasiPage> with TickerProviderStateMixin {
                 ),
                 child: GestureDetector(
                   onTap: () {
+                    playSound();
                     Navigator.pop(context);
                   },
                   child: Align(
@@ -95,6 +98,7 @@ class _LokasiPageState extends State<LokasiPage> with TickerProviderStateMixin {
                           'Pasar                                                         ',
                       animation: _animation,
                       ontap: () {
+                        playSound();
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -107,6 +111,7 @@ class _LokasiPageState extends State<LokasiPage> with TickerProviderStateMixin {
                           'Alun-Alun                                                         ',
                       animation: _animation,
                       ontap: () {
+                        playSound();
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -118,7 +123,13 @@ class _LokasiPageState extends State<LokasiPage> with TickerProviderStateMixin {
                       description:
                           'Pedesaan                                                         ',
                       animation: _animation,
-                      ontap: () {},
+                      ontap: () {
+                        playSound();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PedesaanQnaPage()));
+                      },
                     ),
                   ],
                 ),

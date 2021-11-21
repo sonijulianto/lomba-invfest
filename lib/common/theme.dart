@@ -7,6 +7,9 @@ Color buttonColor = Color(0xffAEE9F9);
 Color greenColor = Color(0xff74E59F);
 Color blueColor = Color(0xff4572EB);
 Color greyColor = Color(0xff9C9C9C);
+Color cardQnaColor = Color(0xffEAF9FF);
+Color tokoColor = Color(0xff00587C);
+
 
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color: blackColor,
@@ -23,6 +26,10 @@ TextStyle blueTextStyle = GoogleFonts.poppins(
 TextStyle greyTextStyle = GoogleFonts.poppins(
   color: greyColor,
 );
+TextStyle tokoTextStyle = GoogleFonts.poppins(
+  color: tokoColor,
+);
 
 FontWeight light = FontWeight.w300;
+FontWeight semiBold = FontWeight.w600;
 FontWeight bold = FontWeight.w700;

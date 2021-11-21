@@ -17,7 +17,7 @@ jawabanDua(int jawabanDua) {
     case 2:
       return b;
     case 3:
-      return c;
+      return c; //benar
     case 4:
       return d;
     case 5:

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
+import 'package:lomba/functions/gambar-tutor-vaksin.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/functions/text-tutor-vaksin.dart';
 
 class PelatihanVaksin extends StatefulWidget {
@@ -72,7 +74,7 @@ class _PelatihanVaksinState extends State<PelatihanVaksin>
             ],
           ),
         ),
-        child: ListView(
+        child: Column(
           children: [
             ScaleTransition(
               scale: _animation2,
@@ -82,7 +84,7 @@ class _PelatihanVaksinState extends State<PelatihanVaksin>
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      'assets/corona.jpg',
+                      gambarTutorVaksin(index),
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -148,8 +150,8 @@ class _PelatihanVaksinState extends State<PelatihanVaksin>
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
+                              playSound();
                               index != 1 ? index-- : index -= 0;
-                              print(index);
                             });
                           },
                           child: Icon(
@@ -166,8 +168,8 @@ class _PelatihanVaksinState extends State<PelatihanVaksin>
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
+                              playSound();
                               index != 20 ? index++ : index += 0;
-                              print(index);
                             });
                           },
                           child: Icon(

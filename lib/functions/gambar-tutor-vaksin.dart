@@ -1,55 +1,49 @@
-gambarTutor(int index) {
-  final String gambar1 = '';
-  final String gambar2 = '';
-  final String gambar3 = '';
-  final String gambar4 = '';
-  final String gambar5 = '';
-  final String gambar6 = '';
-  final String gambar7 = '';
-  final String gambar8 = '';
-  final String gambar9 = '';
-  final String gambar10 = '';
-  final String gambar11 = '';
-  final String gambar12 = '';
-  final String gambar13 = '';
-  final String gambar14 = '';
-  final String gambar15 = '';
-  final String gambar16 = '';
-  final String gambar17 = '';
+gambarTutorVaksin(int index) {
+  final String gambar1 = 'assets/vaksin1.jpg';
+  final String gambar2 = 'assets/vaksin2.jpg';
+  final String gambar3 = 'assets/vaksin3.jpg';
+  final String gambar4 = 'assets/vaksin4.jpg';
+  final String gambar5 = 'assets/vaksin7.jpg';
   switch (index) {
     case 1:
       return gambar1;
     case 2:
-      return gambar2;
+      return gambar1;
     case 3:
-      return gambar3;
+      return gambar2;
     case 4:
-      return gambar4;
+      return gambar2;
     case 5:
-      return gambar5;
+      return gambar3;
     case 6:
-      return gambar6;
+      return gambar3;
     case 7:
-      return gambar7;
+      return gambar3;
     case 8:
-      return gambar8;
+      return gambar4;
     case 9:
-      return gambar9;
+      return gambar4;
     case 10:
-      return gambar10;
+      return gambar4;
     case 11:
-      return gambar11;
+      return gambar4;
     case 12:
-      return gambar12;
+      return gambar4;
     case 13:
-      return gambar13;
+      return gambar4;
     case 14:
-      return gambar14;
+      return gambar4;
     case 15:
-      return gambar15;
+      return gambar5;
     case 16:
-      return gambar16;
+      return gambar5;
     case 17:
-      return gambar17;
+      return gambar5;
+    case 18:
+      return gambar5;
+    case 19:
+      return gambar5;
+    case 20:
+      return gambar5;
   }
 }

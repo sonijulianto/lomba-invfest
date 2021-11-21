@@ -10,10 +10,10 @@ jawabanLima(int jawabanLima) {
   String jawaban5 =
       'Benar bu, sehingga tidak perlu khawatir lagi akan terpapar COVID-19.';
   String pertanyaan =
-      '(Ibu Puji - Penjual Sayuran) Halo dikm meski sudah diberi jarak tiap pedagang, apakah resiko penyebaran sudah berkurang?';
+      '(Ibu Puji - Penjual Sayuran) Halo dik, meski sudah diberi jarak tiap pedagang, apakah resiko penyebaran sudah berkurang?';
   switch (jawabanLima) {
     case 1:
-      return jawaban1;
+      return jawaban1; //benar
     case 2:
       return jawaban2;
     case 3:

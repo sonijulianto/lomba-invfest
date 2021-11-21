@@ -21,7 +21,7 @@ jawabanTiga(int jawabanTiga) {
     case 4:
       return d;
     case 5:
-      return e;
+      return e; //benar
     default:
       return pertanyaan;
   }

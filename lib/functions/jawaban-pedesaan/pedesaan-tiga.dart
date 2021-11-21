@@ -9,7 +9,7 @@ pedesaanTiga(int pedesaanTiga) {
   String e =
       '3M : Menjaga pola hidup sehat, memakai masker, menggunakan hand sanitizer.';
   String pertanyaan =
-      '(Dik Rizal - Desa Demaan RT 004/002) Halo, apa saja protokal kesehatan yang harus kami lakukan saat ini? ';
+      '(Dik Rizal - Desa Demaan RT 004/002) Halo, apa saja protokol kesehatan yang harus kami lakukan saat ini?';
   switch (pedesaanTiga) {
     case 1:
       return a;

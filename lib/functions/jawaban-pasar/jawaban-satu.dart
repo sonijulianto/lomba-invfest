@@ -13,7 +13,7 @@ jawabanSatu(int jawabanSatu) {
       '(Kak Pangaribawa - Penjual Ikan Segar) Apakah sinar matahari dapat mematikan virus di permukaan benda? Atau disinfektan masih diperlukan untuk mematikan virus?';
   switch (jawabanSatu) {
     case 1:
-      return a;
+      return a; //benar
     case 2:
       return b;
     case 3:

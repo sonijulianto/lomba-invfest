@@ -15,12 +15,12 @@ class ChatGambar extends StatelessWidget {
       alignment: alignment,
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 10,
+          horizontal: 5,
+          vertical: 5,
         ),
         margin: EdgeInsets.only(
           bottom: 10,
-          right: 10,
+          left: 10,
         ),
         decoration: BoxDecoration(
           color: alignment == Alignment.bottomRight

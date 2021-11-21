@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
 import 'package:lomba/functions/gambar-tutor-definisi.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/functions/text-tutor-definisi.dart';
 
 class PelatihanDefinisi extends StatefulWidget {
@@ -73,7 +74,7 @@ class _PelatihanDefinisiState extends State<PelatihanDefinisi>
             ],
           ),
         ),
-        child: ListView(
+        child: Column(
           children: [
             ScaleTransition(
               scale: _animation2,
@@ -88,6 +89,27 @@ class _PelatihanDefinisiState extends State<PelatihanDefinisi>
                     fit: BoxFit.cover,
                   ),
                 ),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(
+                vertical: 5,
+                horizontal: 10,
+              ),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xff46C5FE),
+                    Color(0xff93D9F9),
+                  ],
+                ),
+              ),
+              child: Text(
+                textTutor(index),
+                style: blackTextStyle.copyWith(),
               ),
             ),
             Spacer(),
@@ -121,6 +143,7 @@ class _PelatihanDefinisiState extends State<PelatihanDefinisi>
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
+                              playSound();
                               index != 1 ? index-- : index -= 0;
                               print(index);
                             });
@@ -139,6 +162,7 @@ class _PelatihanDefinisiState extends State<PelatihanDefinisi>
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
+                              playSound();
                               index != 17 ? index++ : index += 0;
                               print(index);
                             });
@@ -151,31 +175,6 @@ class _PelatihanDefinisiState extends State<PelatihanDefinisi>
                         ),
                       ),
               ],
-            ),
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(
-                vertical: 5,
-                horizontal: 10,
-              ),
-              decoration: BoxDecoration(
-                color: whiteColor,
-                // borderRadius: BorderRadius.vertical(
-                //   top: Radius.circular(17),
-                // ),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color(0xff46C5FE),
-                    Color(0xff93D9F9),
-                  ],
-                ),
-              ),
-              child: Text(
-                textTutor(index),
-                style: blackTextStyle.copyWith(),
-              ),
             ),
           ],
         ),

@@ -12,6 +12,7 @@ import 'package:lomba/functions/jawaban-pasar/jawaban-sembilan.dart';
 import 'package:lomba/functions/jawaban-pasar/jawaban-sepuluh.dart';
 import 'package:lomba/functions/jawaban-pasar/jawaban-tiga.dart';
 import 'package:lomba/functions/jawaban-pasar/jawaban-tujuh.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/widgets/chat_card.dart';
 import 'package:lomba/widgets/chat_gambar_card.dart';
 import 'package:lomba/widgets/jawaban.dart';
@@ -24,6 +25,7 @@ class PasarQnaPage extends StatefulWidget {
 }
 
 class _PasarQnaPageState extends State<PasarQnaPage> {
+  
   int index = 0;
   int jawaban1 = 0;
   int jawaban2 = 0;
@@ -35,6 +37,13 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
   int jawaban8 = 0;
   int jawaban9 = 0;
   int jawaban10 = 0;
+final controller = ScrollController();
+  void scrollDown() {
+    final double end = 2562.6428571428573;
+    controller.jumpTo(end);
+    print(end);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -66,17 +75,17 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                 child: Container(
                   width: double.infinity,
                   child: ListView(
+                    controller: controller,
                     children: [
-                      Spacer(),
                       GestureDetector(
                         onTap: () {
                           setState(() {
+                            playSound();
                             index == 0 ? index += 1 : index += 0;
-                            print(index);
                           });
                         },
                         child: ChatCard(
-                            people: 'Kak Pangaribawa - Penjual Ikan Segar',
+                            people: '',
                             alignment: Alignment.bottomRight,
                             message:
                                 'Selamat datang untuk seluruh warga desa tari kolot, sebagai Duta Covidiolog saya akan membagikan sosialisasi tentang pandemi COVID-19 dan mnegajak para warga untuk bersama-sama peduli terhadap kesehatan kita dan orang lain.'),
@@ -85,11 +94,12 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                           ? GestureDetector(
                               onTap: () {
                                 setState(() {
+                                  playSound();
                                   index == 1 ? index += 1 : index += 0;
                                 });
                               },
                               child: ChatCard(
-                                people: 'Kak Pangaribawa - Penjual Ikan Segar',
+                                people: '',
                                 alignment: Alignment.bottomRight,
                                 message:
                                     'Berikut saya lampirkan vidio penjelasan yang saya buat, spesial untuk warga desa tari kolot',
@@ -100,6 +110,7 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                           ? GestureDetector(
                               onTap: () {
                                 setState(() {
+                                  playSound();
                                   index == 2 ? index += 1 : index += 0;
                                 });
                               },
@@ -112,14 +123,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                       index >= 3
                           ? GestureDetector(
                               onTap: () {
+                                soundMessage();
                                 setState(() {
-                                  Timer(Duration(seconds: 1), () {
-                                    index == 3 ? index += 1 : index += 0;
-                                  });
+                                  index == 3 ? index += 1 : index += 0;
+                                scrollDown();
                                 });
                               },
                               child: ChatCard(
-                                people: 'Kak Pangaribawa - Penjual Ikan Segar',
+                                people: '',
                                 alignment: Alignment.bottomRight,
                                 message:
                                     'Baik, apakah ada pertanyaan terkait sosialisasi yang saya berikan?',
@@ -137,7 +148,7 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                           : SizedBox(),
                       index >= 5
                           ? ChatCard(
-                              people: 'Kak Pangaribawa - Penjual Ikan Segar',
+                              people: '',
                               jawaban: true,
                               message: jawabanSatu(jawaban1),
                               alignment: Alignment.bottomRight,
@@ -337,21 +348,21 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                     : Colors.red,
                           ),
                           Jawaban(
-                            color: jawaban2 == 1
+                            color: jawaban2 == 3
                                 ? greenColor
                                 : jawaban2 == 0
                                     ? whiteColor
                                     : Colors.red,
                           ),
                           Jawaban(
-                            color: jawaban3 == 1
+                            color: jawaban3 == 5
                                 ? greenColor
                                 : jawaban3 == 0
                                     ? whiteColor
                                     : Colors.red,
                           ),
                           Jawaban(
-                            color: jawaban4 == 1
+                            color: jawaban4 == 4
                                 ? greenColor
                                 : jawaban4 == 0
                                     ? whiteColor
@@ -372,28 +383,28 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                     : Colors.red,
                           ),
                           Jawaban(
-                            color: jawaban7 == 1
+                            color: jawaban7 == 3
                                 ? greenColor
                                 : jawaban7 == 0
                                     ? whiteColor
                                     : Colors.red,
                           ),
                           Jawaban(
-                            color: jawaban8 == 1
+                            color: jawaban8 == 2
                                 ? greenColor
                                 : jawaban8 == 0
                                     ? whiteColor
                                     : Colors.red,
                           ),
                           Jawaban(
-                            color: jawaban9 == 1
+                            color: jawaban9 == 2
                                 ? greenColor
                                 : jawaban9 == 0
                                     ? whiteColor
                                     : Colors.red,
                           ),
                           Jawaban(
-                            color: jawaban10 == 1
+                            color: jawaban10 == 3
                                 ? greenColor
                                 : jawaban10 == 0
                                     ? whiteColor
@@ -416,15 +427,17 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                         index++;
                                         jawaban1 = 1;
                                       });
+                                      playSoundTrue();
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
                                     child: ChatCard(
-                                      people:
-                                          'Kak Pangaribawa - Penjual Ikan Segar',
+                                      people: '',
                                       jawaban: true,
                                       message: jawabanSatu(1),
                                       alignment: Alignment.bottomRight,
@@ -438,16 +451,18 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
                                     child: ChatCard(
-                                      people:
-                                          'Kak Pangaribawa - Penjual Ikan Segar',
+                                      people: '',
                                       jawaban: true,
                                       message: jawabanSatu(2),
                                       alignment: Alignment.bottomRight,
@@ -461,16 +476,18 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          scrollDown();
                                         });
                                       });
                                     },
                                     child: ChatCard(
-                                      people:
-                                          'Kak Pangaribawa - Penjual Ikan Segar',
+                                      people: '',
                                       jawaban: true,
                                       message: jawabanSatu(3),
                                       alignment: Alignment.bottomRight,
@@ -484,16 +501,19 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
                                     child: ChatCard(
-                                      people:
-                                          'Kak Pangaribawa - Penjual Ikan Segar',
+                                      people: '',
                                       jawaban: true,
                                       message: jawabanSatu(4),
                                       alignment: Alignment.bottomRight,
@@ -507,16 +527,19 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
                                     child: ChatCard(
-                                      people:
-                                          'Kak Pangaribawa - Penjual Ikan Segar',
+                                      people: '',
                                       jawaban: true,
                                       message: jawabanSatu(5),
                                       alignment: Alignment.bottomRight,
@@ -531,10 +554,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban2 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -553,10 +580,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban2 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -575,10 +606,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 3;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -597,10 +632,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -619,10 +658,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban1 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -643,11 +686,15 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                         index++;
                                         jawaban3 = 1;
                                       });
+                                      playSoundFalse();
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+                                          //
                                         });
                                       });
+                                      scrollDown();
                                     },
                                     child: ChatCard(
                                       people: '',
@@ -664,10 +711,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban3 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -686,10 +737,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban3 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -708,10 +763,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban3 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -730,10 +789,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban3 = 5;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -753,10 +816,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -775,10 +842,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -797,10 +868,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -819,10 +894,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 4;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -841,10 +920,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban4 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -864,10 +947,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 1;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -886,10 +973,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -908,10 +999,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -930,10 +1025,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -952,10 +1051,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban5 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -975,10 +1078,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 1;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -997,10 +1104,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1019,10 +1130,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1041,10 +1156,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1063,10 +1182,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban6 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1086,10 +1209,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1108,10 +1235,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1130,10 +1261,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 3;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1152,10 +1287,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1174,10 +1313,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban7 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1197,10 +1340,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1219,10 +1366,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 2;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1241,10 +1392,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1263,10 +1418,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1285,10 +1444,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban8 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1308,10 +1471,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1330,10 +1497,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 2;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1352,10 +1523,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 3;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1374,10 +1549,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1396,10 +1575,14 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban9 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
+                                          soundMessage();
                                           index++;
+
+                                          scrollDown();
                                         });
                                       });
                                     },
@@ -1419,6 +1602,7 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 1;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
@@ -1441,6 +1625,7 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 2;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
@@ -1463,6 +1648,7 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 3;
+                                        playSoundTrue();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
@@ -1485,6 +1671,7 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 4;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
@@ -1507,6 +1694,7 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                                       setState(() {
                                         index++;
                                         jawaban10 = 5;
+                                        playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {

@@ -1,6 +1,6 @@
 pedesaanSatu(int pedesaanSatu) {
   //b
-  String a =
+  String a = 
       'Diutamakan untuk selalu menjaga pola hidup sehat kak, karena dengan begini sistem imun kakak akan kuat, dan tidak ada masalah untuk beraktivitas di luar rumah.';
   String b =
       'Keduanya sama penting kak, Disamping terbentuknya imun, kakak juga disarankan untuk mengurangi aktivitas diluar rumah, karena ada kemungkinan kakak berperan sebagai jembatan virus kepada orang lain.';

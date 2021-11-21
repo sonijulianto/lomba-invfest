@@ -27,7 +27,7 @@ class _SplashPageOneState extends State<SplashPageOne> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(width: 200, height: 100, color: Colors.blue),
+              Container(width: 200, height: 100, decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/logo.png'),),),),
               SizedBox(
                 height: 30,
               ),
