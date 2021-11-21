@@ -71,19 +71,29 @@ class SignUpPage extends StatelessWidget {
               Navigator.pushNamedAndRemoveUntil(
                   context, '/home', (route) => false);
             } else if (state is AuthFailed) {
+              //TODO : perlu dipatohkan animasi loading nya dan filter error saat login
+              String _textSelect(String str) {
+                str = str.replaceAll('[firebase_auth/unknown]', '');
+                str = str.replaceAll(
+                    '[firebase_auth/invalid-email]', 'Email Salah !  ');
+                str = str.replaceAll('[firebase_auth/weak-password]', '');
+                return str;
+              }
+
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: Colors.pink,
-                  content: Text(state.error),
+                  backgroundColor: Colors.red,
+                  content: Text(
+                    _textSelect(state.error),
+                    style: whiteTextStyle,
+                  ),
                 ),
               );
             }
           },
           builder: (context, state) {
             if (state is AuthLoading) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
+              return CustomButton(title: 'Loading...', onPressed: () {});
             }
 
             return CustomButton(

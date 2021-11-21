@@ -38,26 +38,15 @@ class _WelcomePageOneState extends State<WelcomePageOne>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color.fromARGB(255, 25, 178, 238),
-            Color.fromARGB(255, 21, 236, 229),
-            Color.fromARGB(255, 255, 236, 229),
-          ],
-        )),
-        child: FadeTransition(
-          opacity: _animation,
-          child: Center(
-            child: Container(
-              child: Text(
-                'Di sebuah desa di indonesia yang sedang dilanda pandemi',
-                style: whiteTextStyle.copyWith(fontSize: 20),
-                textAlign: TextAlign.center,
-              ),
+      backgroundColor: Colors.black54,
+      body: FadeTransition(
+        opacity: _animation,
+        child: Center(
+          child: Container(
+            child: Text(
+              'Di sebuah desa di indonesia yang sedang dilanda pandemi',
+              style: whiteTextStyle.copyWith(fontSize: 20),
+              textAlign: TextAlign.center,
             ),
           ),
         ),

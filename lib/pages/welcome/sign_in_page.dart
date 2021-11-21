@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lomba/common/theme.dart';
-import 'package:lomba/pages/cubit/auth_cubit.dart';
+import 'package:lomba/pages/cubit/login_cubit.dart';
 import 'package:lomba/pages/welcome/sign_up_page.dart';
 import 'package:lomba/widgets/custom_button.dart';
 import 'package:lomba/widgets/custom_text_form_fiel.dart';
@@ -15,6 +15,26 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget loading() {
+      return Container(
+          width: double.infinity,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: blueColor,
+          ),
+          child: Center(
+            child: Container(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                color: Colors.white,
+                strokeWidth: 2,
+              ),
+            ),
+          ));
+    }
+
     Widget title() {
       return Container(
         margin: EdgeInsets.only(top: 15),
@@ -45,31 +65,41 @@ class SignInPage extends StatelessWidget {
       }
 
       Widget submitButton() {
-        return BlocConsumer<AuthCubit, AuthState>(
+        return BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
-            if (state is AuthSuccess) {
+            if (state is LoginSuccess) {
               Navigator.pushNamedAndRemoveUntil(
                   context, '/home', (route) => false);
-            } else if (state is AuthFailed) {
+            } else if (state is LoginFailed) {
+              String _textSelect(String str) {
+                str = str.replaceAll('[firebase_auth/unknown]', '');
+                str = str.replaceAll(
+                    '[firebase_auth/invalid-email]', 'Email Salah !  ');
+                str = str.replaceAll('[firebase_auth/weak-password]', '');
+                str = str.replaceAll('[firebase_auth/user-not-found]',
+                    'Email belum terdaftar !');
+                str = str.replaceAll(
+                    '[firebase_auth/wrong-password]', 'Password anda salah !');
+                return str;
+              }
+
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: Colors.pink,
-                  content: Text(state.error),
+                  backgroundColor: Colors.red,
+                  content: Text(_textSelect(state.error)),
                 ),
               );
             }
           },
           builder: (context, state) {
-            if (state is AuthLoading) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
+            if (state is LoginLoading) {
+              return loading();
             }
 
             return CustomButton(
               title: 'Masuk',
               onPressed: () {
-                context.read<AuthCubit>().signIn(
+                context.read<LoginCubit>().signIn(
                       email: emailController.text,
                       password: passwordController.text,
                     );

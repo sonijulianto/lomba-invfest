@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lomba/pages/cubit/auth_cubit.dart';
+import 'package:lomba/pages/cubit/login_cubit.dart';
 import 'package:lomba/pages/home_page.dart';
 import 'package:lomba/pages/splash_page/splash_page_two.dart';
 
@@ -26,6 +27,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider<AuthCubit>(
             create: (context) => AuthCubit(),
+          ),
+          BlocProvider<LoginCubit>(
+            create: (context) => LoginCubit(),
           ),
         ],
         child: MaterialApp(

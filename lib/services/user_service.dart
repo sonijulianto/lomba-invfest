@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:lomba/model/user_model.dart';
 
 class UserService {
-  CollectionReference _userReference =
+  CollectionReference userReference =
       FirebaseFirestore.instance.collection('users');
 
   Future<void> setUser(UserModel user) async {
     try {
-      _userReference.doc(user.id).set({
+      userReference.doc(user.id).set({
         'email': user.email,
         'nik': user.nik,
         'koin': user.koin,
@@ -20,7 +20,7 @@ class UserService {
 
   Future<UserModel> getUserById(String id) async {
     try {
-      DocumentSnapshot snapshot = await _userReference.doc(id).get();
+      DocumentSnapshot snapshot = await userReference.doc(id).get();
       return UserModel(
           id: id,
           email: snapshot['email'],

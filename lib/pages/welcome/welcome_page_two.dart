@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
-import 'package:lomba/helper/user_info.dart';
-import 'package:lomba/pages/home_page.dart';
 
 class WelcomePageTwo extends StatefulWidget {
   const WelcomePageTwo({Key? key}) : super(key: key);
@@ -51,26 +49,15 @@ class _WelcomePageTwoState extends State<WelcomePageTwo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color.fromARGB(255, 25, 178, 238),
-            Color.fromARGB(255, 21, 236, 229),
-            Color.fromARGB(255, 255, 236, 229),
-          ],
-        )),
-        child: FadeTransition(
-          opacity: _animation,
-          child: Center(
-            child: Container(
-              child: Text(
-                'MOHON TUNGGU menjaga keamanan diri sendiri memang penting, menjaga keamanan orang lain yang utama',
-                style: whiteTextStyle.copyWith(fontSize: 20),
-                textAlign: TextAlign.center,
-              ),
+      backgroundColor: Colors.black87,
+      body: FadeTransition(
+        opacity: _animation,
+        child: Center(
+          child: Container(
+            child: Text(
+              'MOHON TUNGGU menjaga keamanan diri sendiri memang penting, menjaga keamanan orang lain yang utama',
+              style: whiteTextStyle.copyWith(fontSize: 20),
+              textAlign: TextAlign.center,
             ),
           ),
         ),

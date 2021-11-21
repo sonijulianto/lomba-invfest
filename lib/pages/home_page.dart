@@ -1,20 +1,17 @@
 import 'dart:async';
 
-import 'package:animate_do/animate_do.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lomba/common/theme.dart';
-import 'package:lomba/helper/user_info.dart';
+import 'package:lomba/model/user_model.dart';
 import 'package:lomba/pages/aksi_page.dart';
 import 'package:lomba/pages/cubit/auth_cubit.dart';
 import 'package:lomba/pages/information_page.dart';
 import 'package:lomba/pages/materi_page.dart';
-
-import 'package:lomba/widgets/custom_dialog.dart';
-
-import 'package:lomba/pages/welcome/sign_up_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -116,6 +113,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final CollectionReference<Map<String, dynamic>> users =
+        FirebaseFirestore.instance.collection('users');
+    User? user = FirebaseAuth.instance.currentUser;
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -465,33 +465,69 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       SizedBox(
                         width: 10,
                       ),
-                      BlocBuilder<AuthCubit, AuthState>(
-                        builder: (context, state) {
-                          if (state is AuthSuccess) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  state.user.name,
-                                  style: blackTextStyle.copyWith(
-                                    fontWeight: bold,
-                                    fontSize: 20,
+                      StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                          stream: users.snapshots(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              var userss = user!.email;
+                              var a = snapshot.data!.docs
+                                  .map((e) => e.data())
+                                  .toList();
+                              var b =
+                                  a.where((w) => w['email'] == userss).toList();
+                              print(b);
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    b[0]['email'].toString(),
+                                    style: blackTextStyle.copyWith(
+                                      fontWeight: bold,
+                                      fontSize: 9,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  'Duta Covidiolog',
-                                  style: blackTextStyle.copyWith(
-                                    fontSize: 16,
-                                  ),
-                                )
-                              ],
-                            );
-                          } else {
-                            return SizedBox();
-                          }
-                        },
-                      )
+                                  Text(
+                                    'Duta Covidiolog',
+                                    style: blackTextStyle.copyWith(
+                                      fontSize: 16,
+                                    ),
+                                  )
+                                ],
+                              );
+                            } else {
+                              return SizedBox();
+                            }
+                          })
+
+                      // BlocBuilder<AuthCubit, AuthState>(
+                      //   builder: (context, state) {
+                      //     if (state is AuthSuccess) {
+                      //       print(state.user.name);
+                      //       return Column(
+                      //         crossAxisAlignment: CrossAxisAlignment.start,
+                      //         mainAxisAlignment: MainAxisAlignment.center,
+                      //         children: [
+                      //           Text(
+                      //             state.user.name,
+                      //             style: blackTextStyle.copyWith(
+                      //               fontWeight: bold,
+                      //               fontSize: 20,
+                      //             ),
+                      //           ),
+                      //           Text(
+                      //             'Duta Covidiolog',
+                      //             style: blackTextStyle.copyWith(
+                      //               fontSize: 16,
+                      //             ),
+                      //           )
+                      //         ],
+                      //       );
+                      //     } else {
+                      //       return SizedBox();
+                      //     }
+                      //   },
+                      // )
                     ],
                   ),
                 ),
