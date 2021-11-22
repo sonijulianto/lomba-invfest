@@ -7,8 +7,10 @@ import 'package:lomba/widgets/chat_gambar_bonus.dart';
 class BonusPage extends StatefulWidget {
   final int valid;
   final int wrong;
+  final String lokasi;
   BonusPage({
     Key? key,
+    required this.lokasi,
     required this.valid,
     required this.wrong,
   }) : super(key: key);
@@ -42,8 +44,8 @@ class _BonusPageState extends State<BonusPage> {
       ),
       body: GestureDetector(
         onTap: () => setState(() {
-          index < 7 ? index++ : index += 0;
-          index <= 7 ? soundMessage() : index += 0;
+          index < 8 ? index++ : index += 0;
+          index <= 8 ? soundMessage() : index += 0;
         }),
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -64,7 +66,7 @@ class _BonusPageState extends State<BonusPage> {
             child: ListView(
               reverse: true,
               children: [
-                index >= 7
+                index >= 8
                     ? Container(
                         margin: EdgeInsets.only(left: 10),
                         width: 100,
@@ -81,6 +83,14 @@ class _BonusPageState extends State<BonusPage> {
                         ),
                       )
                     : SizedBox(),
+                index >= 7
+                    ? ChatCard(
+                        people: '',
+                        message:
+                            'Meski demikian, usahamu dalam menurunkan kasus penyebaran COVID-19 dianggap : ${'\n${widget.valid < 5 ? 'GAGAL' : widget.valid < 8 ? 'CUKUP BAIK' : 'BERHASIL'} - Skor Kepercayaan ${widget.valid.toString()}0%'}',
+                        alignment: Alignment.bottomLeft,
+                      )
+                    : SizedBox(),
                 index >= 6
                     ? ChatCard(
                         people: '',
@@ -93,7 +103,7 @@ class _BonusPageState extends State<BonusPage> {
                     ? ChatCard(
                         people: '',
                         message:
-                            '${widget.valid.toString()} warga berhasil kamu berikan informasi yang tepat, \n ${widget.wrong.toString()} warga mendapatkan informasi yang salah',
+                            '${widget.valid.toString()} warga berhasil kamu berikan informasi yang tepat, \n${widget.wrong.toString()} warga mendapatkan informasi yang salah',
                         alignment: Alignment.bottomLeft,
                         index: 1,
                       )
@@ -107,7 +117,7 @@ class _BonusPageState extends State<BonusPage> {
                     : SizedBox(),
                 index >= 3
                     ? ChatGambarBonus(
-                        gambar: widget.valid > widget.wrong
+                        gambar: widget.valid >= widget.wrong
                             ? 'assets/grafik_benar.jpg'
                             : 'assets/grafik_salah.jpg',
                         alignment: Alignment.bottomLeft,
@@ -125,7 +135,7 @@ class _BonusPageState extends State<BonusPage> {
                     ? ChatCard(
                         people: '',
                         message:
-                            'Kamu telah menyelesaikan Program Qna bersama EMOSI di titik lokasi pedesaan.',
+                            'Kamu telah menyelesaikan Program Qna bersama EMOSI di titik lokasi ${widget.lokasi}.',
                         alignment: Alignment.bottomLeft,
                       )
                     : SizedBox(),

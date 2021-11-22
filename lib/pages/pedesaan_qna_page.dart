@@ -145,6 +145,8 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 1
                       index >= 4
                           ? ChatCard(
+                            warna:
+                                  sepuluhTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Rahma - Desa Mambak RT 02/04',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -162,6 +164,8 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 2
                       index >= 6
                           ? ChatCard(
+                            warna:
+                                  sembilanTextStyle.copyWith(fontWeight: bold),
                               people: 'Bapak Udik - Desa Bukit Asri RT 01/01',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -179,6 +183,8 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 3
                       index >= 8
                           ? ChatCard(
+                            warna:
+                                  delapanTextStyle.copyWith(fontWeight: bold),
                               people: 'Dik Rizal - Desa Demaan RT 004/002',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -196,6 +202,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 4
                       index >= 10
                           ? ChatCard(
+                            warna: tujuhTextStyle.copyWith(fontWeight: bold),
                               people: 'Bapak Nasrul - Desa Panggang RT 05/02',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -213,6 +220,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 5
                       index >= 12
                           ? ChatCard(
+                            warna: enamTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Haidar - Desa Bapangan RT 03/02',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -230,6 +238,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 6
                       index >= 14
                           ? ChatCard(
+                            warna: satuTextStyle.copyWith(fontWeight: bold),
                               people: 'Ibu Arini - Desa penangkol RT 03/03',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -247,6 +256,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 7
                       index >= 16
                           ? ChatCard(
+                            warna: duaTextStyle.copyWith(fontWeight: bold),
                               people: 'Ibu Ida - Perumahan Kuwasharjo RT 02/01',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -264,6 +274,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 8
                       index >= 18
                           ? ChatCard(
+                            warna: tigaTextStyle.copyWith(fontWeight: bold),
                               people: 'Ibu Yektana - Desa Tahunan RT 11/02',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -281,6 +292,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 9
                       index >= 20
                           ? ChatCard(
+                            warna: empatTextStyle.copyWith(fontWeight: bold),
                               people: 'Dik Jehan - Desa Saripan RT 04/01',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -298,6 +310,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                       // pertanyaan 10
                       index >= 22
                           ? ChatCard(
+                            warna: limaTextStyle.copyWith(fontWeight: bold),
                               people: 'Pak Elfin - Desa Kuwasen RT 04/01',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -1622,6 +1635,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                                                       BonusPage(
                                                         valid: benar,
                                                         wrong: salah,
+                                                        lokasi: 'Pedesaan',
                                                       )),
                                               (route) => false);
                                         });
@@ -1654,6 +1668,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                                                       BonusPage(
                                                         valid: benar,
                                                         wrong: salah,
+                                                        lokasi: 'Pedesaan',
                                                       )),
                                               (route) => false);
                                         });
@@ -1686,6 +1701,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                                                       BonusPage(
                                                         valid: benar,
                                                         wrong: salah,
+                                                        lokasi: 'Pedesaan',
                                                       )),
                                               (route) => false);
                                         });
@@ -1718,6 +1734,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                                                       BonusPage(
                                                         valid: benar,
                                                         wrong: salah,
+                                                        lokasi: 'Pedesaan',
                                                       )),
                                               (route) => false);
                                         });
@@ -1750,6 +1767,7 @@ class _PedesaanQnaPageState extends State<PedesaanQnaPage> {
                                                       BonusPage(
                                                         valid: benar,
                                                         wrong: salah,
+                                                        lokasi: 'Pedesaan',
                                                       )),
                                               (route) => false);
                                         });

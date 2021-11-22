@@ -7,10 +7,12 @@ class ChatCard extends StatelessWidget {
   int? index;
   String people;
   bool? jawaban;
+  TextStyle? warna;
   final String message;
   final AlignmentGeometry alignment;
   ChatCard({
     Key? key,
+    this.warna,
     this.index,
     required this.people,
     this.jawaban = false,
@@ -67,9 +69,9 @@ class ChatCard extends StatelessWidget {
                 : people != ''
                     ? Text(
                         people,
-                        style: blueTextStyle.copyWith(
-                          fontWeight: bold,
-                        ),
+                        style: warna == null
+                            ? blueTextStyle.copyWith(fontWeight: bold)
+                            : warna,
                         overflow: TextOverflow.ellipsis,
                       )
                     : SizedBox(),

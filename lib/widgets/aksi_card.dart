@@ -52,7 +52,6 @@ class AksiCard extends StatelessWidget {
                 ),
               ),
               Container(
-                height: height,
                 padding: EdgeInsets.symmetric(
                   horizontal: 10,
                   vertical: 5,

@@ -3,6 +3,7 @@ import 'package:lomba/common/theme.dart';
 import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/pages/lokasi_page.dart';
 import 'package:lomba/widgets/aksi_card.dart';
+import 'package:lomba/widgets/custom_dialog.dart';
 
 class AksiPage extends StatefulWidget {
   const AksiPage({Key? key}) : super(key: key);
@@ -136,8 +137,9 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
                   fontWeight: bold,
                 ),
                 ontap: () {
-                  playSoundAndNext(context,
-                      MaterialPageRoute(builder: (context) => LokasiPage()));
+                  playSound();
+                  customDialogAksi(
+                      context, 'Mohon maaf fitur ini belum tersedia.');
                 },
               ),
             ]),

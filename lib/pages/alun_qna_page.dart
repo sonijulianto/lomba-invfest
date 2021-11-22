@@ -13,6 +13,7 @@ import 'package:lomba/functions/jawaban-alun/alun-sepuluh.dart';
 import 'package:lomba/functions/jawaban-alun/alun-tiga.dart';
 import 'package:lomba/functions/jawaban-alun/alun-tujuh.dart';
 import 'package:lomba/functions/sounds/sound.dart';
+import 'package:lomba/pages/bonus_page.dart';
 import 'package:lomba/widgets/chat_card.dart';
 import 'package:lomba/widgets/chat_gambar_card.dart';
 import 'package:lomba/widgets/jawaban.dart';
@@ -36,6 +37,9 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
   int jawaban8 = 0;
   int jawaban9 = 0;
   int jawaban10 = 0;
+
+  int benar = 0;
+  int salah = 0;
 
   final controller = ScrollController();
   void scrollDown() {
@@ -141,6 +145,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 1
                       index >= 4
                           ? ChatCard(
+                            warna: satuTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Alvin - Olahragawan',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -158,6 +163,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 2
                       index >= 6
                           ? ChatCard(
+                            warna: duaTextStyle.copyWith(fontWeight: bold),
                               people: 'Pak Zaenal - Pejalan Kaki',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -175,6 +181,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 3
                       index >= 8
                           ? ChatCard(
+                            warna: tigaTextStyle.copyWith(fontWeight: bold),
                               people: 'Dik Jovanka - Pelari',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -192,6 +199,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 4
                       index >= 10
                           ? ChatCard(
+                            warna: empatTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Edo - Mahasiswa Baru',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -209,6 +217,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 5
                       index >= 12
                           ? ChatCard(
+                            warna: limaTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Tika - Pesepeda',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -226,6 +235,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 6
                       index >= 14
                           ? ChatCard(
+                            warna: enamTextStyle.copyWith(fontWeight: bold),
                               people: 'Bu Avia - Penari',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -243,6 +253,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 7
                       index >= 16
                           ? ChatCard(
+                            warna: tujuhTextStyle.copyWith(fontWeight: bold),
                               people: 'kak Dava - Pelajar SMA',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -260,6 +271,8 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 8
                       index >= 18
                           ? ChatCard(
+                            warna:
+                                  delapanTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Thauriq - Mahasiswa Akhir',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -277,6 +290,8 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 9
                       index >= 20
                           ? ChatCard(
+                            warna:
+                                  sembilanTextStyle.copyWith(fontWeight: bold),
                               people: 'Dik Putri - Penari',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -294,6 +309,8 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 10
                       index >= 22
                           ? ChatCard(
+                            warna:
+                                  sepuluhTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Umi - Pesepeda',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -426,6 +443,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban1 = 1;
                                         playSoundFalse();
                                       });
@@ -451,6 +469,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban1 = 2;
                                         playSoundTrue();
                                       });
@@ -476,6 +495,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban1 = 3;
                                         playSoundFalse();
                                       });
@@ -501,6 +521,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban1 = 4;
                                         playSoundFalse();
                                       });
@@ -526,6 +547,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban1 = 5;
                                         playSoundFalse();
                                       });
@@ -552,6 +574,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban2 = 1;
                                         playSoundFalse();
                                       });
@@ -577,6 +600,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban2 = 2;
                                         playSoundTrue();
                                       });
@@ -602,6 +626,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban1 = 3;
                                         playSoundFalse();
                                       });
@@ -627,6 +652,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban1 = 4;
                                         playSoundFalse();
                                       });
@@ -652,6 +678,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban1 = 5;
                                         playSoundFalse();
                                       });
@@ -678,6 +705,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban3 = 1;
                                         playSoundTrue();
                                       });
@@ -703,6 +731,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban3 = 2;
                                         playSoundFalse();
                                       });
@@ -728,6 +757,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban3 = 3;
                                         playSoundFalse();
                                       });
@@ -753,6 +783,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban3 = 4;
                                         playSoundFalse();
                                       });
@@ -778,6 +809,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban3 = 5;
                                         playSoundFalse();
                                       });
@@ -804,6 +836,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban4 = 1;
                                         playSoundFalse();
                                       });
@@ -829,6 +862,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban4 = 2;
                                         playSoundFalse();
                                       });
@@ -854,6 +888,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban4 = 3;
                                         playSoundTrue();
                                       });
@@ -879,6 +914,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban4 = 4;
                                         playSoundFalse();
                                       });
@@ -904,6 +940,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban4 = 5;
                                         playSoundFalse();
                                       });
@@ -930,6 +967,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban5 = 1;
                                         playSoundFalse();
                                       });
@@ -955,6 +993,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban5 = 2;
                                         playSoundFalse();
                                       });
@@ -980,6 +1019,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban5 = 3;
                                         playSoundFalse();
                                       });
@@ -1005,6 +1045,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban5 = 4;
                                         playSoundTrue();
                                       });
@@ -1030,6 +1071,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban5 = 5;
                                         playSoundFalse();
                                       });
@@ -1056,6 +1098,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban6 = 1;
                                         playSoundFalse();
                                       });
@@ -1081,6 +1124,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban6 = 2;
                                         playSoundFalse();
                                       });
@@ -1106,6 +1150,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban6 = 3;
                                         playSoundFalse();
                                       });
@@ -1131,6 +1176,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban6 = 4;
                                         playSoundFalse();
                                       });
@@ -1156,6 +1202,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban6 = 5;
                                         playSoundTrue();
                                       });
@@ -1182,6 +1229,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban7 = 1;
                                         playSoundTrue();
                                       });
@@ -1207,6 +1255,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban7 = 2;
                                         playSoundFalse();
                                       });
@@ -1232,6 +1281,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban7 = 3;
                                         playSoundFalse();
                                       });
@@ -1257,6 +1307,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban7 = 4;
                                         playSoundFalse();
                                       });
@@ -1282,6 +1333,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban7 = 5;
                                         playSoundFalse();
                                       });
@@ -1308,6 +1360,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban8 = 1;
                                         playSoundTrue();
                                       });
@@ -1333,6 +1386,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban8 = 2;
                                         playSoundFalse();
                                       });
@@ -1358,6 +1412,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban8 = 3;
                                         playSoundFalse();
                                       });
@@ -1383,6 +1438,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban8 = 4;
                                         playSoundFalse();
                                       });
@@ -1408,6 +1464,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban8 = 5;
                                         playSoundFalse();
                                       });
@@ -1434,6 +1491,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban9 = 1;
                                         playSoundTrue();
                                       });
@@ -1459,6 +1517,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban9 = 2;
                                         playSoundFalse();
                                       });
@@ -1484,6 +1543,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban9 = 3;
                                         playSoundFalse();
                                       });
@@ -1509,6 +1569,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban9 = 4;
                                         playSoundFalse();
                                       });
@@ -1534,6 +1595,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban9 = 5;
                                         playSoundFalse();
                                       });
@@ -1560,12 +1622,22 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban10 = 1;
                                         playSoundFalse();
                                       });
                                       Timer(Duration(seconds: 2), () {
                                         setState(() {
-                                          index++;
+                                          Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BonusPage(
+                                                        valid: benar,
+                                                        wrong: salah,
+                                                        lokasi: 'Alun-Alun',
+                                                      )),
+                                              (route) => false);
                                         });
                                       });
                                     },
@@ -1583,12 +1655,22 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban10 = 2;
                                         playSoundFalse();
                                       });
-                                      Timer(Duration(seconds: 2), () {
+                                      Timer(Duration(seconds: 3), () {
                                         setState(() {
-                                          index++;
+                                          Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BonusPage(
+                                                        valid: benar,
+                                                        wrong: salah,
+                                                        lokasi: 'Alun-Alun',
+                                                      )),
+                                              (route) => false);
                                         });
                                       });
                                     },
@@ -1606,12 +1688,22 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban10 = 3;
                                         playSoundFalse();
                                       });
-                                      Timer(Duration(seconds: 2), () {
+                                      Timer(Duration(seconds: 3), () {
                                         setState(() {
-                                          index++;
+                                          Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BonusPage(
+                                                        valid: benar,
+                                                        wrong: salah,
+                                                        lokasi: 'Alun-Alun',
+                                                      )),
+                                              (route) => false);
                                         });
                                       });
                                     },
@@ -1629,12 +1721,22 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        benar++;
                                         jawaban10 = 4;
                                         playSoundTrue();
                                       });
-                                      Timer(Duration(seconds: 2), () {
+                                      Timer(Duration(seconds: 3), () {
                                         setState(() {
-                                          index++;
+                                          Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BonusPage(
+                                                        valid: benar,
+                                                        wrong: salah,
+                                                        lokasi: 'Alun-Alun',
+                                                      )),
+                                              (route) => false);
                                         });
                                       });
                                     },
@@ -1652,12 +1754,22 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                                     onTap: () {
                                       setState(() {
                                         index++;
+                                        salah++;
                                         jawaban10 = 5;
                                         playSoundFalse();
                                       });
-                                      Timer(Duration(seconds: 2), () {
+                                      Timer(Duration(seconds: 3), () {
                                         setState(() {
-                                          index++;
+                                          Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BonusPage(
+                                                        valid: benar,
+                                                        wrong: salah,
+                                                        lokasi: 'Alun-Alun',
+                                                      )),
+                                              (route) => false);
                                         });
                                       });
                                     },

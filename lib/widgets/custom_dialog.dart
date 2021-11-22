@@ -58,3 +58,23 @@ customDialog(BuildContext context, String title, String content) {
     );
   }
 }
+customDialogAksi(BuildContext context, String content) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        content: Text(content),
+        actions: [
+          TextButton(
+            onPressed: () {
+              playSound();
+              Navigator.pop(context);
+            },
+            child: Text('OK'),
+          ),
+        ],
+      );
+    },
+  );
+}
+

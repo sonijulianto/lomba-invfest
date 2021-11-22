@@ -56,7 +56,7 @@ class _WelcomeNameState extends State<WelcomeName> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('Hallo semalat datang '),
+                        child: Text('Hallo selamat datang '),
                       ),
                     ),
                   ),

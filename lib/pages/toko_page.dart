@@ -74,11 +74,12 @@ class _TokoPageState extends State<TokoPage> with TickerProviderStateMixin {
                           AksiCard(
                             ontap: () {},
                             animation: _animation,
-                            image: 'assets/gambar2.jpg',
-                            title: 'Kaos E-Covid',
+                            image: 'assets/kaos1.jpg',
+                            title: 'Kaos EMOSI Hitam',
                             description:
-                                'kaos e-covid adalah 1 dari beberapa merchandise aplikasi e-covid',
-                            style: blackTextStyle,
+                                'Kaos EMOSI adalah Merchandise eksklusif dari Aplikasi Edukasi dan Promosi Kesehatan',
+                            style:
+                                blackTextStyle.copyWith(fontWeight: semiBold),
                             width: 250,
                             height: 100,
                           ),
@@ -88,11 +89,12 @@ class _TokoPageState extends State<TokoPage> with TickerProviderStateMixin {
                           AksiCard(
                             ontap: () {},
                             animation: _animation,
-                            image: 'assets/gambar2.jpg',
-                            title: 'Kaos E-Covid',
+                            image: 'assets/kaos2.jpg',
+                            title: 'Kaos EMOSI Putih',
                             description:
-                                'kaos e-covid adalah 1 dari beberapa merchandise aplikasi e-covid',
-                            style: blackTextStyle,
+                                'Kaos EMOSI adalah Merchandise eksklusif dari Aplikasi Edukasi dan Promosi Kesehatan',
+                            style:
+                                blackTextStyle.copyWith(fontWeight: semiBold),
                             width: 250,
                             height: 100,
                           ),
@@ -102,11 +104,12 @@ class _TokoPageState extends State<TokoPage> with TickerProviderStateMixin {
                           AksiCard(
                             ontap: () {},
                             animation: _animation,
-                            image: 'assets/gambar2.jpg',
-                            title: 'Kaos E-Covid',
+                            image: 'assets/topi1.jpg',
+                            title: 'Topi EMOSI hitam',
                             description:
-                                'kaos e-covid adalah 1 dari beberapa merchandise aplikasi e-covid',
-                            style: blackTextStyle,
+                                'Topi EMOSI adalah Merchandise eksklusif dari Aplikasi Edukasi dan Promosi Kesehatan',
+                            style:
+                                blackTextStyle.copyWith(fontWeight: semiBold),
                             width: 250,
                             height: 100,
                           ),
@@ -116,13 +119,32 @@ class _TokoPageState extends State<TokoPage> with TickerProviderStateMixin {
                           AksiCard(
                             ontap: () {},
                             animation: _animation,
-                            image: 'assets/gambar2.jpg',
-                            title: 'Kaos E-Covid',
+                            image: 'assets/topi2.jpg',
+                            title: 'Topi EMOSI Putih',
                             description:
-                                'kaos e-covid adalah 1 dari beberapa merchandise aplikasi e-covid',
-                            style: blackTextStyle,
+                                'Topi EMOSI adalah Merchandise eksklusif dari Aplikasi Edukasi dan Promosi Kesehatan',
+                            style:
+                                blackTextStyle.copyWith(fontWeight: semiBold),
                             width: 250,
                             height: 100,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          AksiCard(
+                            ontap: () {},
+                            animation: _animation,
+                            image: 'assets/tumbler1.jpeg',
+                            title: 'Tumbler berbagai warna',
+                            description:
+                                'Tumbler EMOSI adalah Merchandise eksklusif dari Aplikasi Edukasi dan Promosi Kesehatan',
+                            style:
+                                blackTextStyle.copyWith(fontWeight: semiBold),
+                            width: 250,
+                            height: 100,
+                          ),
+                          SizedBox(
+                            height: 70,
                           ),
                         ],
                       ),
