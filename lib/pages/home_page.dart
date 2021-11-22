@@ -466,31 +466,40 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         width: 10,
                       ),
                       StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-                          stream: users.snapshots(),
+                          stream: users
+                              .where('email', isEqualTo: user!.email)
+                              .snapshots(),
                           builder: (context, snapshot) {
                             if (snapshot.hasData) {
-                              var userss = user!.email;
                               var a = snapshot.data!.docs
                                   .map((e) => e.data())
                                   .toList();
-                              var b =
-                                  a.where((w) => w['email'] == userss).toList();
-                              print(b);
+                              // var b = a
+                              //     .where((w) => w['email'] == user!.email)
+                              //     .toList();
+                              var hasil = a[0]['koin'].toString();
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    b[0]['email'].toString(),
+                                    (hasil == '0') ? '0' : hasil,
                                     style: blackTextStyle.copyWith(
                                       fontWeight: bold,
                                       fontSize: 9,
                                     ),
                                   ),
-                                  Text(
-                                    'Duta Covidiolog',
-                                    style: blackTextStyle.copyWith(
-                                      fontSize: 16,
+                                  GestureDetector(
+                                    onTap: () => (hasil == '0')
+                                        ? {}
+                                        : users
+                                            .doc(user.uid)
+                                            .update({'koin': a[0]['koin'] + 1}),
+                                    child: Text(
+                                      'Duta Covidiolog',
+                                      style: blackTextStyle.copyWith(
+                                        fontSize: 16,
+                                      ),
                                     ),
                                   )
                                 ],
