@@ -77,7 +77,7 @@ class _BonusPageState extends State<BonusPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage(name: '')));
+                                    builder: (context) => HomePage()));
                           },
                           child: Text('KEMBALI KE MENU'),
                         ),

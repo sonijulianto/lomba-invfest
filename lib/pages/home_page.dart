@@ -1,17 +1,24 @@
 import 'package:audioplayers/audioplayers.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lomba/common/theme.dart';
+
 import 'package:lomba/functions/sounds/sound.dart';
+
 import 'package:lomba/pages/aksi_page.dart';
+import 'package:lomba/pages/cubit/auth_cubit.dart';
 import 'package:lomba/pages/information_page.dart';
 import 'package:lomba/pages/materi_page.dart';
 import 'package:lomba/pages/toko_page.dart';
 
-import 'package:lomba/widgets/custom_dialog.dart';
-
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.name}) : super(key: key);
-  final String name;
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -77,6 +84,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final CollectionReference<Map<String, dynamic>> users =
+        FirebaseFirestore.instance.collection('users');
+    User? user = FirebaseAuth.instance.currentUser;
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -143,27 +153,47 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             ),
                           ],
                         ),
-                        ScaleTransition(
-                          scale: _animation1,
-                          child: GestureDetector(
-                            onTap: () {
-                              playSound();
-                              customDialog(context, 'Peringatan',
-                                  'Apakah anda yakin ingin keluar?');
-                            },
-                            child: Container(
-                              width: 43,
-                              height: 43,
-                              decoration: BoxDecoration(
-                                color: whiteColor,
-                                borderRadius: BorderRadius.circular(25),
+                        BlocConsumer<AuthCubit, AuthState>(
+                          listener: (context, state) {
+                            if (state is AuthFailed) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  backgroundColor: Colors.pink,
+                                  content: Text(state.error),
+                                ),
+                              );
+                            } else if (state is AuthInitial) {
+                              Navigator.pushNamedAndRemoveUntil(
+                                  context, '/', (route) => false);
+                            }
+                          },
+                          builder: (context, state) {
+                            if (state is AuthLoading) {
+                              return Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            }
+                            return ScaleTransition(
+                              scale: _animation1,
+                              child: GestureDetector(
+                                onTap: () {
+                                  context.read<AuthCubit>().signOut();
+                                },
+                                child: Container(
+                                  width: 43,
+                                  height: 43,
+                                  decoration: BoxDecoration(
+                                    color: whiteColor,
+                                    borderRadius: BorderRadius.circular(25),
+                                  ),
+                                  child: Icon(
+                                    Icons.close,
+                                    color: Colors.blue.shade300,
+                                  ),
+                                ),
                               ),
-                              child: Icon(
-                                Icons.close,
-                                color: Colors.blue.shade300,
-                              ),
-                            ),
-                          ),
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -418,25 +448,78 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       SizedBox(
                         width: 10,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            widget.name,
-                            style: blackTextStyle.copyWith(
-                              fontWeight: bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            'Duta Covidiolog',
-                            style: blackTextStyle.copyWith(
-                              fontSize: 16,
-                            ),
-                          )
-                        ],
-                      )
+                      StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                          stream: users
+                              .where('email', isEqualTo: user!.email)
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              var a = snapshot.data!.docs
+                                  .map((e) => e.data())
+                                  .toList();
+                              // var b = a
+                              //     .where((w) => w['email'] == user!.email)
+                              //     .toList();
+                              var hasil = a[0]['koin'].toString();
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    (hasil == '0') ? '0' : hasil,
+                                    style: blackTextStyle.copyWith(
+                                      fontWeight: bold,
+                                      fontSize: 9,
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () => (hasil == '0')
+                                        ? {}
+                                        : users
+                                            .doc(user.uid)
+                                            .update({'koin': a[0]['koin'] + 1}),
+                                    child: Text(
+                                      'Duta Covidiolog',
+                                      style: blackTextStyle.copyWith(
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              );
+                            } else {
+                              return SizedBox();
+                            }
+                          })
+
+                      // BlocBuilder<AuthCubit, AuthState>(
+                      //   builder: (context, state) {
+                      //     if (state is AuthSuccess) {
+                      //       print(state.user.name);
+                      //       return Column(
+                      //         crossAxisAlignment: CrossAxisAlignment.start,
+                      //         mainAxisAlignment: MainAxisAlignment.center,
+                      //         children: [
+                      //           Text(
+                      //             state.user.name,
+                      //             style: blackTextStyle.copyWith(
+                      //               fontWeight: bold,
+                      //               fontSize: 20,
+                      //             ),
+                      //           ),
+                      //           Text(
+                      //             'Duta Covidiolog',
+                      //             style: blackTextStyle.copyWith(
+                      //               fontSize: 16,
+                      //             ),
+                      //           )
+                      //         ],
+                      //       );
+                      //     } else {
+                      //       return SizedBox();
+                      //     }
+                      //   },
+                      // )
                     ],
                   ),
                 ),
