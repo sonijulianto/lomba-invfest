@@ -178,7 +178,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () {
                                   playSound();
-                                  customDialog(context, 'Peringatan.',
+                                  customDialog(context, 'Peringatan',
                                       'apakah kamu yakin ingin keluar?');
                                 },
                                 child: Container(
@@ -462,29 +462,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               // var b = a
                               //     .where((w) => w['email'] == user!.email)
                               //     .toList();
-                              var hasil = a[0]['koin'].toString();
+                              var koin = a[0]['koin'].toString();
+                              var nama = a[0]['name'].toString();
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    (hasil == '0') ? '0' : hasil,
+                                    (koin == '0') ? '0' : koin,
                                     style: blackTextStyle.copyWith(
                                       fontWeight: bold,
                                       fontSize: 16,
                                     ),
                                   ),
-                                  GestureDetector(
-                                    onTap: () => (hasil == '0')
-                                        ? {}
-                                        : users
-                                            .doc(user.uid)
-                                            .update({'koin': a[0]['koin'] + 1}),
-                                    child: Text(
-                                      'Guest',
-                                      style: blackTextStyle.copyWith(
-                                        fontSize: 16,
-                                      ),
+                                  Text(
+                                    nama,
+                                    style: blackTextStyle.copyWith(
+                                      fontSize: 16,
                                     ),
                                   )
                                 ],

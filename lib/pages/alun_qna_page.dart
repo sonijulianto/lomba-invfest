@@ -81,7 +81,6 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                   child: ListView(
                     controller: controller,
                     children: [
-                      Spacer(),
                       GestureDetector(
                         onTap: () {
                           setState(() {
@@ -145,7 +144,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 1
                       index >= 4
                           ? ChatCard(
-                            warna: satuTextStyle.copyWith(fontWeight: bold),
+                              warna: satuTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Alvin - Olahragawan',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -163,7 +162,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 2
                       index >= 6
                           ? ChatCard(
-                            warna: duaTextStyle.copyWith(fontWeight: bold),
+                              warna: duaTextStyle.copyWith(fontWeight: bold),
                               people: 'Pak Zaenal - Pejalan Kaki',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -181,7 +180,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 3
                       index >= 8
                           ? ChatCard(
-                            warna: tigaTextStyle.copyWith(fontWeight: bold),
+                              warna: tigaTextStyle.copyWith(fontWeight: bold),
                               people: 'Dik Jovanka - Pelari',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -199,7 +198,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 4
                       index >= 10
                           ? ChatCard(
-                            warna: empatTextStyle.copyWith(fontWeight: bold),
+                              warna: empatTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Edo - Mahasiswa Baru',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -217,7 +216,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 5
                       index >= 12
                           ? ChatCard(
-                            warna: limaTextStyle.copyWith(fontWeight: bold),
+                              warna: limaTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Tika - Pesepeda',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -235,7 +234,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 6
                       index >= 14
                           ? ChatCard(
-                            warna: enamTextStyle.copyWith(fontWeight: bold),
+                              warna: enamTextStyle.copyWith(fontWeight: bold),
                               people: 'Bu Avia - Penari',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -253,7 +252,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 7
                       index >= 16
                           ? ChatCard(
-                            warna: tujuhTextStyle.copyWith(fontWeight: bold),
+                              warna: tujuhTextStyle.copyWith(fontWeight: bold),
                               people: 'kak Dava - Pelajar SMA',
                               alignment: Alignment.bottomLeft,
                               message:
@@ -271,7 +270,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 8
                       index >= 18
                           ? ChatCard(
-                            warna:
+                              warna:
                                   delapanTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Thauriq - Mahasiswa Akhir',
                               alignment: Alignment.bottomLeft,
@@ -290,7 +289,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 9
                       index >= 20
                           ? ChatCard(
-                            warna:
+                              warna:
                                   sembilanTextStyle.copyWith(fontWeight: bold),
                               people: 'Dik Putri - Penari',
                               alignment: Alignment.bottomLeft,
@@ -309,7 +308,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                       // pertanyaan 10
                       index >= 22
                           ? ChatCard(
-                            warna:
+                              warna:
                                   sepuluhTextStyle.copyWith(fontWeight: bold),
                               people: 'Kak Umi - Pesepeda',
                               alignment: Alignment.bottomLeft,

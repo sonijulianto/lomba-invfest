@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/pages/home_page.dart';
@@ -20,9 +22,15 @@ class BonusPage extends StatefulWidget {
 }
 
 class _BonusPageState extends State<BonusPage> {
+  final CollectionReference<Map<String, dynamic>> users =
+      FirebaseFirestore.instance.collection('users');
+  User? user = FirebaseAuth.instance.currentUser;
   int index = 0;
+
   @override
   Widget build(BuildContext context) {
+    var coin = widget.valid;
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -67,21 +75,38 @@ class _BonusPageState extends State<BonusPage> {
               reverse: true,
               children: [
                 index >= 8
-                    ? Container(
-                        margin: EdgeInsets.only(left: 10),
-                        width: 100,
-                        height: 50,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            playSound();
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HomePage()));
-                          },
-                          child: Text('KEMBALI KE MENU'),
-                        ),
-                      )
+                    ? StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                        stream: users
+                            .where('email', isEqualTo: user!.email)
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            var a = snapshot.data!.docs
+                                .map((e) => e.data())
+                                .toList();
+
+                            return Container(
+                              margin: EdgeInsets.only(left: 10),
+                              width: 100,
+                              height: 50,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  users
+                                      .doc(user!.uid)
+                                      .update({'koin': a[0]['koin'] + coin});
+                                  playSound();
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HomePage()));
+                                },
+                                child: Text('KEMBALI KE MENU'),
+                              ),
+                            );
+                          } else {
+                            return Text('gagal');
+                          }
+                        })
                     : SizedBox(),
                 index >= 7
                     ? ChatCard(
