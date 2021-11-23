@@ -17,6 +17,26 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget loading() {
+      return Container(
+          width: double.infinity,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: blueColor,
+          ),
+          child: Center(
+            child: Container(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                color: Colors.white,
+                strokeWidth: 2,
+              ),
+            ),
+          ));
+    }
+
     Widget title() {
       return Container(
         margin: EdgeInsets.only(top: 15),
@@ -95,7 +115,7 @@ class SignUpPage extends StatelessWidget {
           },
           builder: (context, state) {
             if (state is AuthLoading) {
-              return CustomButton(title: 'Loading...', onPressed: () {});
+              return loading();
             }
 
             return CustomButton(

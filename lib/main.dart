@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           routes: {
             '/': (context) => SplashPageOne(),
             '/two': (context) => SplashPageTwo(),
