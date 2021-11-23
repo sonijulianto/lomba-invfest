@@ -39,10 +39,14 @@ class SignUpPage extends StatelessWidget {
 
     Widget title() {
       return Container(
-        margin: EdgeInsets.only(top: 15),
-        width: 200,
-        height: 50,
-        color: Colors.amber,
+        margin: EdgeInsets.only(top: 15, bottom: 20),
+        width: 150,
+        height: 75,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/logo.png'),
+          ),
+        ),
       );
     }
 
@@ -91,7 +95,6 @@ class SignUpPage extends StatelessWidget {
               Navigator.pushNamedAndRemoveUntil(
                   context, '/home', (route) => false);
             } else if (state is AuthFailed) {
-              //TODO : perlu dipatohkan animasi loading nya dan filter error saat login
               String _textSelect(String str) {
                 str = str.replaceAll('[firebase_auth/unknown]', '');
                 str = str.replaceAll(
@@ -144,40 +147,27 @@ class SignUpPage extends StatelessWidget {
     }
 
     Widget signInButton() {
-      return GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, '/sign-in');
-        },
-        child: Container(
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(
-            top: 30,
-            bottom: 73,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Sudah punya akun? ',
+      return Container(
+        margin: EdgeInsets.only(top: 50),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Sudah punya akun?',
+              style: greyTextStyle.copyWith(
+                color: Colors.black54,
+              ),
+            ),
+            TextButton(
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SignInPage())),
+              child: Text(
+                'Masuk',
                 style: greyTextStyle.copyWith(
-                  fontSize: 16,
-                  color: Colors.black54,
-                ),
+                    fontWeight: bold, color: blueColor, letterSpacing: 0.5),
               ),
-              TextButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SignInPage())),
-                child: Text(
-                  'Masuk',
-                  style: greyTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: bold,
-                      color: blueColor,
-                      letterSpacing: 0.5),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
     }

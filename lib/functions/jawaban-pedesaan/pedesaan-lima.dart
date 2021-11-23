@@ -5,7 +5,7 @@ pedesaanLima(int pedesaanLima) {
   String b =
       'Karena dengan masker 2 lapis, kakak tidak akan terpapar COVID-19.';
   String c =
-      'Karena dengan masker 2 lapis, kakak tidak perlu lagi melaksanakan protokos kesehatan yang lain.';
+      'Karena dengan masker 2 lapis, kakak tidak perlu lagi melaksanakan protokol kesehatan yang lain.';
   String d =
       'Karena dengan masker 2 lapis dapat mengurangi risiko terpapar COVID-19 hingga 85%.';
   String e = 'Karena dengan masker 2 lapis, imunitas kakak akan terbentuk.';

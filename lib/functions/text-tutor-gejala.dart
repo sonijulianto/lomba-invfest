@@ -12,7 +12,7 @@ textTutorGejala(int index) {
   final String text6 =
       'Gejala serius ini bukan berarti akan muncul sesaat setelah kita terinfeksi COVID-19. Umumnya, gejala akan muncul 5 hingga 6 hari setelah seseorang terinfeksi, selain itu gejala juga dapat muncul setelah 14 hari terhitung sejak terinfeksi.';
   final String text7 =
-      'Masa inkubasi virus COrona yang cukup panjang ini membuat kita untuk selalu melakukan pendeteksian dini. Semakin dini kita mengetahuinya akan membantu meringankan gejalan.';
+      'Masa inkubasi virus Corona yang cukup panjang ini membuat kita untuk selalu melakukan pendeteksian dini. Semakin dini kita mengetahuinya akan membantu meringankan gejala.';
   final String text8 =
       'Salah satu upaya pendeteksian virus Corona adalah dengan melakukan tes COVID-19. Ada berbagai janis tes COVID-19, antara lain adalah tes molekuler atau disebut juga tes RNA/PCR (Polymerase Chain Reaction).';
   final String text9 =

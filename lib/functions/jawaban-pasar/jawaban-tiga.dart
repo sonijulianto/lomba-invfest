@@ -6,9 +6,9 @@ jawabanTiga(int jawabanTiga) {
   String c =
       'Imunitas tubuh penting untuk pencegahan virus Corona. Maka kita diwajibkan untuk vaksinasi saja sebagai pencegahannya.';
   String d =
-      'Tidak seberapa penting, karena dengan kita menerapkan protokol kesehatan ketika bertemu orang banyak maka aman-aman saja untuk dapat terhindar dari virus COrona.';
+      'Tidak seberapa penting, karena dengan kita menerapkan protokol kesehatan ketika bertemu orang banyak maka aman-aman saja untuk dapat terhindar dari virus Corona.';
   String e =
-      'Imunitas tubuh sangat penting, Bu. Karena virus Corona menyerang sistem kekebalan tubuh yang harus dijaga dengan menerapkan 5M. Juka imunitas rendah maka rentang terpapar COVID-19.';
+      'Imunitas tubuh sangat penting, Bu. Karena virus Corona menyerang sistem kekebalan tubuh yang harus dijaga dengan menerapkan 5M. Jika imunitas rendah maka rentang terpapar COVID-19.';
   String pertanyaan =
       '(Ibu Parti - Toko Sembako) Halo, dik. Seberapa penting peran imunitas tubuh untuk mencegah penularan covid-19?';
   switch (jawabanTiga) {

@@ -10,8 +10,10 @@ class AksiCard extends StatelessWidget {
   final TextStyle style;
   final double width;
   final double height;
+  final String? harga;
   AksiCard({
     Key? key,
+    this.harga,
     required this.ontap,
     required this.animation,
     required this.image,
@@ -47,7 +49,7 @@ class AksiCard extends StatelessWidget {
                   ),
                   image: DecorationImage(
                     image: AssetImage(image),
-                    fit: BoxFit.fitWidth,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -69,6 +71,18 @@ class AksiCard extends StatelessWidget {
                         fontSize: 12,
                       ),
                     ),
+                    harga == null
+                        ? SizedBox()
+                        : Align(
+                            alignment: Alignment.bottomRight,
+                            child: Text(
+                              harga!,
+                              style: blackTextStyle.copyWith(
+                                fontSize: 12,
+                                fontWeight: bold,
+                              ),
+                            ),
+                          ),
                   ],
                 ),
               ),

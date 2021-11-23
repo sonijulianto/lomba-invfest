@@ -9,9 +9,9 @@ pedesaanEmpat(int pedesaanEmpat) {
   String d =
       'Tidak seperti itu, pak. Setiap imunisasi memang meiliki efek samping yang terjadi pada sepersekian persen popoluasi, dan dapat terjadi pad orang yang memiliki kelainan imunitas.';
   String e =
-      'Tidak seperti itr, pak. Kemungkinan orang tersebut tidak menjaga pola hidup sehat setalah divaksi, yang menyebebkan turunya imunitas secara drastis';
+      'Tidak seperti itu, pak. Kemungkinan orang tersebut tidak menjaga pola hidup sehat setalah divaksin, yang menyebebkan turunnya imunitas secara drastis';
   String pertanyaan =
-      '(Bapak Nasrul - Desa Panggang RT 05/02) Halo, mengenai berita adanya warga yang jatuh sakit setelah divaksinani, separah inikah efek dari vaksinani COVID-19';
+      '(Bapak Nasrul - Desa Panggang RT 05/02) Halo, mengenai berita adanya warga yang jatuh sakit setelah divaksinasi, separah inikah efek dari vaksinasi COVID-19';
   switch (pedesaanEmpat) {
     case 1:
       return a;

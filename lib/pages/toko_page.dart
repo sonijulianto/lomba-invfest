@@ -72,6 +72,7 @@ class _TokoPageState extends State<TokoPage> with TickerProviderStateMixin {
                       child: Column(
                         children: [
                           AksiCard(
+                            harga: 'Rp. 120.000',
                             ontap: () {},
                             animation: _animation,
                             image: 'assets/kaos1.jpg',
@@ -87,6 +88,7 @@ class _TokoPageState extends State<TokoPage> with TickerProviderStateMixin {
                             height: 30,
                           ),
                           AksiCard(
+                            harga: 'Rp. 120.000',
                             ontap: () {},
                             animation: _animation,
                             image: 'assets/kaos2.jpg',
@@ -102,6 +104,7 @@ class _TokoPageState extends State<TokoPage> with TickerProviderStateMixin {
                             height: 30,
                           ),
                           AksiCard(
+                            harga: 'Rp. 60.000',
                             ontap: () {},
                             animation: _animation,
                             image: 'assets/topi1.jpg',
@@ -117,6 +120,7 @@ class _TokoPageState extends State<TokoPage> with TickerProviderStateMixin {
                             height: 30,
                           ),
                           AksiCard(
+                            harga: 'Rp. 60.000',
                             ontap: () {},
                             animation: _animation,
                             image: 'assets/topi2.jpg',
@@ -132,6 +136,7 @@ class _TokoPageState extends State<TokoPage> with TickerProviderStateMixin {
                             height: 30,
                           ),
                           AksiCard(
+                            harga: 'Rp. 80.000',
                             ontap: () {},
                             animation: _animation,
                             image: 'assets/tumbler1.jpeg',

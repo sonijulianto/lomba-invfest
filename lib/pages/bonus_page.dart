@@ -45,7 +45,7 @@ class _BonusPageState extends State<BonusPage> {
       body: GestureDetector(
         onTap: () => setState(() {
           index < 8 ? index++ : index += 0;
-          index <= 8 ? soundMessage() : index += 0;
+          index < 8 ? soundMessage() : index += 0;
         }),
         child: Container(
           height: MediaQuery.of(context).size.height,

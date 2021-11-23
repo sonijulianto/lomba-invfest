@@ -5,8 +5,6 @@ import 'package:lomba/pages/cubit/auth_cubit.dart';
 import 'package:lomba/pages/cubit/login_cubit.dart';
 import 'package:lomba/pages/home_page.dart';
 import 'package:lomba/pages/splash_page/splash_page_two.dart';
-
-import 'pages/splash_page/splash_page_one.dart';
 import 'pages/welcome/sign_up_page.dart';
 import 'pages/welcome/welcome_page_one.dart';
 import 'pages/welcome/welcome_page_two.dart';
@@ -35,8 +33,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           routes: {
-            '/': (context) => SplashPageOne(),
-            '/two': (context) => SplashPageTwo(),
+            '/': (context) => SplashPageTwo(),
             '/welcome_one': (context) => WelcomePageOne(),
             '/welcome_two': (context) => WelcomePageTwo(),
             '/sign_up': (context) => SignUpPage(),

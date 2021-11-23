@@ -1,8 +1,12 @@
+// ignore_for_file: implementation_imports
+
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lomba/common/navigation.dart';
 import 'package:lomba/functions/sounds/sound.dart';
+import 'package:lomba/pages/cubit/auth_cubit.dart';
+import 'package:provider/src/provider.dart';
 
 customDialog(BuildContext context, String title, String content) {
   if (Platform.isIOS) {
@@ -48,6 +52,7 @@ customDialog(BuildContext context, String title, String content) {
             ),
             TextButton(
               onPressed: () {
+                context.read<AuthCubit>().signOut();
                 exit(0);
               },
               child: Text('Ya'),
@@ -58,6 +63,7 @@ customDialog(BuildContext context, String title, String content) {
     );
   }
 }
+
 customDialogAksi(BuildContext context, String content) {
   showDialog(
     context: context,
@@ -77,4 +83,3 @@ customDialogAksi(BuildContext context, String content) {
     },
   );
 }
-

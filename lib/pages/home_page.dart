@@ -2,9 +2,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lomba/common/theme.dart';
@@ -16,6 +13,7 @@ import 'package:lomba/pages/cubit/auth_cubit.dart';
 import 'package:lomba/pages/information_page.dart';
 import 'package:lomba/pages/materi_page.dart';
 import 'package:lomba/pages/toko_page.dart';
+import 'package:lomba/widgets/custom_dialog.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -179,7 +177,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               scale: _animation1,
                               child: GestureDetector(
                                 onTap: () {
-                                  context.read<AuthCubit>().signOut();
+                                  playSound();
+                                  customDialog(context, 'Peringatan.',
+                                      'apakah kamu yakin ingin keluar?');
                                 },
                                 child: Container(
                                   width: 43,
@@ -471,7 +471,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     (hasil == '0') ? '0' : hasil,
                                     style: blackTextStyle.copyWith(
                                       fontWeight: bold,
-                                      fontSize: 9,
+                                      fontSize: 16,
                                     ),
                                   ),
                                   GestureDetector(
@@ -481,7 +481,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                             .doc(user.uid)
                                             .update({'koin': a[0]['koin'] + 1}),
                                     child: Text(
-                                      'Duta Covidiolog',
+                                      'Guest',
                                       style: blackTextStyle.copyWith(
                                         fontSize: 16,
                                       ),

@@ -1,8 +1,8 @@
 textTutor(int index) {
   final String text1 =
-      'Hingga detik ini, kita semua tidak dapat menyangkal atas keresahan yang menyelimuti dunia ini. Sudah satu tahun lebih virus Corona menyebar di sekitar kita. Virus Corona atau Servere Acute Resporatory Syndrome Coronavirus 2(SARS-CoV-2) adalah virus yang menyerang sistem pernapasan.';
+      'Hingga detik ini, kita semua tidak dapat menyangkal atas keresahan yang menyelimuti dunia ini. Sudah satu tahun lebih virus Corona menyebar di sekitar kita. Virus Corona atau Servere Acute Resporatory Syndrome Coronavirus 2 (SARS-CoV-2) adalah virus yang menyerang sistem pernapasan.';
   final String text2 =
-      'Penyakit karena infeksi virus ini disebut COVID-19. VIrus COrona dapat menyebabkan gangguan ringan pada sistem pernapasan, infeksi paru-paru yang berat, hingga kematian. Virus ini dapat menyerang siapa saja, seperti lansia, orang dewasa, anak-anak dan bayi, hingga ibu hamil dan ibu menyusui.';
+      'Penyakit karena infeksi virus ini disebut COVID-19. VIrus Corona dapat menyebabkan gangguan ringan pada sistem pernapasan, infeksi paru-paru yang berat, hingga kematian. Virus ini dapat menyerang siapa saja, seperti lansia, orang dewasa, anak-anak dan bayi, hingga ibu hamil dan ibu menyusui.';
   final String text3 =
       'Virus ini dapat menular melalui percikan dahak (droplet) dari saluran pernapasan, misalnya ketika kita berada di ruang tertutup yang ramai dan dengan sirkulasi udara yang kurang baik. Penularan virus ini juga dapat terjadi ketika ada kontak langsung dengan droplet.';
   final String text4 =

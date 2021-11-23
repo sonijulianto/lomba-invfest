@@ -37,10 +37,14 @@ class SignInPage extends StatelessWidget {
 
     Widget title() {
       return Container(
-        margin: EdgeInsets.only(top: 15),
-        width: 200,
-        height: 50,
-        color: Colors.amber,
+        margin: EdgeInsets.only(top: 20, bottom: 20),
+        width: 150,
+        height: 75,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/logo.png'),
+          ),
+        ),
       );
     }
 
@@ -119,40 +123,31 @@ class SignInPage extends StatelessWidget {
     }
 
     Widget signInButton() {
-      return GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, '/sign-in');
-        },
-        child: Container(
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(
-            top: 30,
-            bottom: 73,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Belum punya akun?',
+      return Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.only(
+          top: 30,
+          bottom: 73,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Belum punya akun?',
+              style: greyTextStyle.copyWith(
+                color: Colors.black54,
+              ),
+            ),
+            TextButton(
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SignUpPage())),
+              child: Text(
+                'Daftar',
                 style: greyTextStyle.copyWith(
-                  fontSize: 16,
-                  color: Colors.black54,
-                ),
+                    fontWeight: bold, color: blueColor, letterSpacing: 0.5),
               ),
-              TextButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SignUpPage())),
-                child: Text(
-                  'Daftar',
-                  style: greyTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: bold,
-                      color: blueColor,
-                      letterSpacing: 0.5),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
     }

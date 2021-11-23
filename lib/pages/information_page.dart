@@ -245,7 +245,12 @@ class _InformationPageState extends State<InformationPage>
                                   Container(
                                     width: 90,
                                     height: 90,
-                                    color: Colors.grey,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      image: DecorationImage(
+                                        image: AssetImage('assets/syaugi.jpeg'),
+                                      ),
+                                    ),
                                   ),
                                   Text(
                                     'Syaugi \n Askar',

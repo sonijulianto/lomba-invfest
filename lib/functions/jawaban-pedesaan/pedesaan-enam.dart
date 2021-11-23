@@ -1,7 +1,7 @@
 pedesaanEnam(int pedesaanEnam) {
   //a
   String a =
-      'Tidak bu, vaksinasi tidak bekerja secar instan. Butuh waktu minimal satu bulan agar imun dari vaksinasi terbentuk.';
+      'Tidak bu, vaksinasi tidak bekerja secara instan. Butuh waktu minimal satu bulan agar imun dari vaksinasi terbentuk.';
   String b = 'Benar bu, ini mengapa diadakan vaksinasi sebanyak 2 kali.';
   String c =
       'Tidak bu, karena definisi dari vaksin adalah dimasukannya virus baik yang telah dilemahkan supaya menstimulasi imunitas. sehinga alat pengambilan spesimen tes COVID-19 mendeteksi virus tersebut sebagai virus Corona.';

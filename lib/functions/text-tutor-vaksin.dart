@@ -2,13 +2,13 @@ textTutorVaksin(int index) {
   final String text1 =
       'Dalam menghadapi adaptasi kebiasaan baru menuju masyarakat yang produktif dan aman terhadap COVID-19, pemerintah melakukan penataan penyelenggaraan barbagai kegiatan dengan prioritas kesehatan masyarakat.';
   final String text2 =
-      'Tempat dan fasilitas umu merupakan salah satu kluster masyarakat dalam beraktivitas dan berpotensi menjadi klaster penyebaran COVID-19, sehingga diperlukan sebuahprotokol kesehatan untuk mencegah dan mengendalikan kasus ini.';
+      'Tempat dan fasilitas umum merupakan salah satu kluster masyarakat dalam beraktivitas dan berpotensi menjadi klaster penyebaran COVID-19, sehingga diperlukan sebuah protokol kesehatan untuk mencegah dan mengendalikan kasus ini.';
   final String text3 =
       'Indonesia menerapkan protokol kesehatan dengan strategi pencegahan 3M, yakni menggunakan masker, mencuci tangan, dan menjaga jarak serta menghindari kerumunan.';
   final String text4 =
       'Namun berkaca pada adanya ledakan-ledakan kasus setelah libur panjang, kini Indonesia menerapkan protokol kesehatan 5M, dengan menambahkan strategi menjauhi kerumunan dan mengurangi mobilitas. Gerakan 3T dilakukan untuk melakukan pengujian, pelacakan dan pengobatan kepada pasien COVID-19.';
   final String text5 =
-      'Dalam menggunakan masker, pemerintah menganjurkan untuk menggunakan masker medis dan penggunanya harus menutupi hidung dan mulut hingga dagu. Apabilamenggunakan masker kain, dianjurkan untuk menggunakan masker kain 2 hingga 3 lapis.';
+      'Dalam menggunakan masker, pemerintah menganjurkan untuk menggunakan masker medis dan penggunanya harus menutupi hidung dan mulut hingga dagu. Apabila menggunakan masker kain, dianjurkan untuk menggunakan masker kain 2 hingga 3 lapis.';
   final String text6 =
       'Dalam mencuci tangan dapat menggunakan sabun melalui air mengalir, atau menggunakan cairan antiseptik berbasis alkohol/hand sanitizer. Menjaga jarak juga diperlukan untuk menghindari terkena droplet dari orang yang berbicara, batuk, atau bersin.';
   final String text7 =
@@ -24,7 +24,7 @@ textTutorVaksin(int index) {
   final String text12 =
       'Vaksinasi tidak hanya bertujuan untuk memutus rantai penularan penyakit, tetapi juga mengeliminasi bahkan membasmi penyakit itu sendiri dalam jangka panjang. Apabisa seseorang tidak menjalani vaksinasi, maka ia tidak akan memiliki kekebalan spesifik terhadap suatu penyakit.';
   final String text13 =
-      'Saat ini, jumlah vaksin COVID-19 yang tersedia di indonesia masih sangat terbatas. Maka, pemerintah memiliki prioritas kelompok yang akan mendapatkan vaksinasi COVID-19, yakni tenaga kesehatan, orang dengan pekerjaan yang memiliki resiko tinggi tertular COVID-19, dan orang yang memiliki penyakit penyerta dengan resiko kematia tinggi bila terkena COVID-19.';
+      'Saat ini, jumlah vaksin COVID-19 yang tersedia di indonesia masih sangat terbatas. Maka, pemerintah memiliki prioritas kelompok yang akan mendapatkan vaksinasi COVID-19, yakni tenaga kesehatan, orang dengan pekerjaan yang memiliki resiko tinggi tertular COVID-19, dan orang yang memiliki penyakit penyerta dengan resiko kematian tinggi bila terkena COVID-19.';
   final String text14 =
       'Setelah semua kelompok prioritas tersebut memperoleh vaksinasi, akan dilanjutkan kepada kelompok dengan prioritas penduduk di daerah yang banyak kasus COVID-19.';
   final String text15 =

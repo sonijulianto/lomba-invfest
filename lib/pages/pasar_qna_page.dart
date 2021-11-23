@@ -92,7 +92,7 @@ class _PasarQnaPageState extends State<PasarQnaPage> {
                             people: '',
                             alignment: Alignment.bottomRight,
                             message:
-                                'Selamat datang untuk seluruh warga desa tari kolot, sebagai Duta Covidiolog saya akan membagikan sosialisasi tentang pandemi COVID-19 dan mnegajak para warga untuk bersama-sama peduli terhadap kesehatan kita dan orang lain.'),
+                                'Selamat datang untuk seluruh warga desa tari kolot, sebagai Duta EMOSI saya akan membagikan sosialisasi tentang pandemi COVID-19 dan mengajak para warga untuk bersama-sama peduli terhadap kesehatan kita dan orang lain.'),
                       ),
                       index >= 1
                           ? GestureDetector(

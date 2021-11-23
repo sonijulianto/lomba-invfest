@@ -1,7 +1,10 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lomba/common/theme.dart';
+import 'package:lomba/pages/cubit/auth_cubit.dart';
 
 class WelcomePageTwo extends StatefulWidget {
   const WelcomePageTwo({Key? key}) : super(key: key);
@@ -23,8 +26,17 @@ class _WelcomePageTwoState extends State<WelcomePageTwo>
 
   @override
   void initState() {
-    Timer(Duration(seconds: 4), () {
-      Navigator.pushNamedAndRemoveUntil(context, '/sign_up', (route) => false);
+    Timer(Duration(seconds: 3), () {
+      User? user = FirebaseAuth.instance.currentUser;
+      print(user);
+      if (user == null) {
+        Navigator.pushNamedAndRemoveUntil(
+            context, '/sign_up', (route) => false);
+      } else {
+        print(user.email);
+        BlocProvider.of<AuthCubit>(context).getCurrentUser(user.uid);
+        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+      }
     });
     super.initState();
   }
@@ -55,7 +67,7 @@ class _WelcomePageTwoState extends State<WelcomePageTwo>
         child: Center(
           child: Container(
             child: Text(
-              'MOHON TUNGGU menjaga keamanan diri sendiri memang penting, menjaga keamanan orang lain yang utama',
+              'MOHON TUNGGU\nmenjaga keamanan diri sendiri memang penting, menjaga keamanan orang lain yang utama',
               style: whiteTextStyle.copyWith(fontSize: 20),
               textAlign: TextAlign.center,
             ),

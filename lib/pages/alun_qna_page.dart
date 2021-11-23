@@ -93,7 +93,7 @@ class _AlunQnaPageState extends State<AlunQnaPage> {
                             people: '',
                             alignment: Alignment.bottomRight,
                             message:
-                                'Selamat datang para pengunjung Alun-Alun Bandung. Sebagai Duta Covidiolog saya akan membagikan sosialisai tentang pandemi COVID-19 dan mengajak para warga untuk bersama-sama peduli terhadap kesehatan kita dan orang lain.'),
+                                'Selamat datang para pengunjung Alun-Alun Bandung. Sebagai Duta EMOSI saya akan membagikan sosialisai tentang pandemi COVID-19 dan mengajak para warga untuk bersama-sama peduli terhadap kesehatan kita dan orang lain.'),
                       ),
                       index >= 1
                           ? GestureDetector(
