@@ -77,6 +77,8 @@ class SignUpPage extends StatelessWidget {
                 str = str.replaceAll(
                     '[firebase_auth/invalid-email]', 'Email Salah !  ');
                 str = str.replaceAll('[firebase_auth/weak-password]', '');
+                str = str.replaceAll('[firebase_auth/email-already-in-use]',
+                    'Email sudah di gunakan !');
                 return str;
               }
 

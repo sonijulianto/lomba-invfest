@@ -1,17 +1,21 @@
-import 'dart:async';
-
 import 'package:audioplayers/audioplayers.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lomba/common/theme.dart';
-import 'package:lomba/model/user_model.dart';
+
+import 'package:lomba/functions/sounds/sound.dart';
+
 import 'package:lomba/pages/aksi_page.dart';
 import 'package:lomba/pages/cubit/auth_cubit.dart';
 import 'package:lomba/pages/information_page.dart';
 import 'package:lomba/pages/materi_page.dart';
+import 'package:lomba/pages/toko_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -70,37 +74,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     curve: Curves.easeOutBack,
   );
 
-  playSound() {
-    final player = AudioCache();
-    player.play('slow_spring_board.mp3');
-  }
-
-  playSoundAndNextPage() async {
-    final player = AudioCache();
-    await player.play('slow_spring_board.mp3');
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MateriPage(),
-      ),
-    );
-  }
-
-  playSoundAndAksiPage() async {
-    final player = AudioCache();
-    await player.play('slow_spring_board.mp3');
-
-    Timer(Duration(milliseconds: 100), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => AksiPage(),
-        ),
-      );
-    });
-  }
-
   @override
   void dispose() {
     _controller.dispose();
@@ -146,7 +119,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         Row(
                           children: [
                             GestureDetector(
-                              onTap: () => Navigator.push(
+                              onTap: () => playSoundAndNext(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => InformationPage(),
@@ -234,7 +207,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: Container(
                         height: 100,
                         width: 200,
-                        color: Colors.grey,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/logo_white.png'),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -243,7 +220,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ScaleTransition(
                       scale: _animation4,
                       child: GestureDetector(
-                        onTap: () => playSoundAndNextPage(),
+                        onTap: () => playSoundAndNext(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MateriPage(),
+                          ),
+                        ),
                         child: Container(
                           height: 50,
                           width: 200,
@@ -304,7 +286,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ScaleTransition(
                       scale: _animation1,
                       child: GestureDetector(
-                        onTap: () => playSoundAndAksiPage(),
+                        onTap: () => playSoundAndNext(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AksiPage(),
+                          ),
+                        ),
                         child: Container(
                           height: 50,
                           width: 200,
@@ -365,14 +352,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ScaleTransition(
                       scale: _animation3,
                       child: GestureDetector(
-                        onTap: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => MateriPage(),
-                          //   ),
-                          // );
-                        },
+                        onTap: () => playSoundAndNext(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TokoPage(),
+                          ),
+                        ),
                         child: Container(
                           height: 50,
                           width: 200,

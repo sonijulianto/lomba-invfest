@@ -15,7 +15,7 @@ jawabanDelapan(int jawabanDelapan) {
     case 1:
       return jawaban1;
     case 2:
-      return jawaban2;
+      return jawaban2; //benar
     case 3:
       return jawaban3;
     case 4:

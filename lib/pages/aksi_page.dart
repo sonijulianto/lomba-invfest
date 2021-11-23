@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/pages/lokasi_page.dart';
 import 'package:lomba/widgets/aksi_card.dart';
+import 'package:lomba/widgets/custom_dialog.dart';
 
 class AksiPage extends StatefulWidget {
   const AksiPage({Key? key}) : super(key: key);
@@ -29,11 +31,21 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
     parent: _controller1,
     curve: Curves.easeOutBack,
   );
+  late final AnimationController _controller2 = AnimationController(
+    lowerBound: 0.7,
+    duration: const Duration(milliseconds: 2100),
+    vsync: this,
+  )..repeat(reverse: true);
+  late final Animation<double> _animation2 = CurvedAnimation(
+    parent: _controller2,
+    curve: Curves.easeOutBack,
+  );
 
   @override
   void dispose() {
     _controller.dispose();
     _controller1.dispose();
+    _controller2.dispose();
     super.dispose();
   }
 
@@ -42,7 +54,7 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
     return SafeArea(
         child: Scaffold(
       body: Container(
-        // padding: EdgeInsets.symmetric(horizontal: 30),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
@@ -62,24 +74,31 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
           ),
           GestureDetector(
             onTap: () {
+              playSound();
               Navigator.pop(context);
             },
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Icon(
-                Icons.arrow_back,
-                color: whiteColor,
-                size: 50,
+            child: ScaleTransition(
+              scale: _animation2,
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Icon(
+                  Icons.arrow_back,
+                  color: whiteColor,
+                  size: 50,
+                ),
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(children: [
-              Text(
-                'PILIH AKSI',
-                style: blackTextStyle.copyWith(
-                  fontSize: 26,
+              ScaleTransition(
+                scale: _animation1,
+                child: Text(
+                  'PILIH AKSI',
+                  style: blackTextStyle.copyWith(
+                    fontSize: 26,
+                  ),
                 ),
               ),
               SizedBox(
@@ -89,49 +108,38 @@ class _AksiPageState extends State<AksiPage> with TickerProviderStateMixin {
                 height: 130,
                 width: double.infinity,
                 animation: _animation,
-                image: 'assets/perlindungan-covid.jpg',
+                image: 'assets/qna.jpg',
                 title: 'Program QnA',
                 description:
-                    'Duta Covidiolog akan menjalankan aksinya dalam sosialisasi dan tanya jawab bersama warga melalui apliksi perpesanan, dapatkah kamu menyebarkan informasi dengan tepat?',
+                    'Duta EMOSI akan menjalankan aksinya dalam sosialisasi dan tanya jawab bersama warga melalui apliksi perpesanan, dapatkah kamu menyebarkan informasi dengan tepat?',
                 style: greenTextStyle.copyWith(
                   fontSize: 18,
                   fontWeight: bold,
                 ),
                 ontap: () {
-                  Navigator.push(context,
+                  playSoundAndNext(context,
                       MaterialPageRoute(builder: (context) => LokasiPage()));
                 },
               ),
-
               SizedBox(
                 height: 30,
               ),
-              // AksiCard(
-              //   animation: _animation,
-              //   image: 'assets/perlindungan-covid.jpg',
-              //   title: 'Program QnA',
-              //   description:
-              //       'Duta Covidiolog akan menjalankan aksinya dalam sosialisasi dan tanya jawab bersama warga melalui apliksi perpesanan, dapatkah kamu menyebarkan informasi dengan tepat?',
-              //   style: greenTextStyle.copyWith(
-              //     fontSize: 18,
-              //     fontWeight: bold,
-              //   ),
-              // ),
               AksiCard(
                 width: double.infinity,
                 height: 130,
                 animation: _animation1,
-                image: 'assets/perlindungan-covid.jpg',
+                image: 'assets/blusukan.jpg',
                 title: 'Program Blusukan',
                 description:
-                    'Duta Covidiolog akan menjalankan aksinya dalam menanggapi kasus protokol kesehatan yang terjadi di lingkungan warga. dapatkah kamu menanggapi merekadengan baik?',
+                    'Duta EMOSI akan menjalankan aksinya dalam menanggapi kasus protokol kesehatan yang terjadi di lingkungan warga. dapatkah kamu menanggapi merekadengan baik?',
                 style: blueTextStyle.copyWith(
                   fontSize: 18,
                   fontWeight: bold,
                 ),
                 ontap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LokasiPage()));
+                  playSound();
+                  customDialogAksi(
+                      context, 'Mohon maaf fitur ini belum tersedia.');
                 },
               ),
             ]),

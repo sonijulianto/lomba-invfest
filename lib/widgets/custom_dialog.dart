@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lomba/common/navigation.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 
 customDialog(BuildContext context, String title, String content) {
   if (Platform.isIOS) {
@@ -22,6 +23,7 @@ customDialog(BuildContext context, String title, String content) {
             CupertinoDialogAction(
               child: Text('Ya'),
               onPressed: () {
+                playSound();
                 Navigation.back();
               },
             ),
@@ -39,6 +41,7 @@ customDialog(BuildContext context, String title, String content) {
           actions: [
             TextButton(
               onPressed: () {
+                playSound();
                 Navigator.pop(context);
               },
               child: Text('Tidak'),
@@ -55,3 +58,23 @@ customDialog(BuildContext context, String title, String content) {
     );
   }
 }
+customDialogAksi(BuildContext context, String content) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        content: Text(content),
+        actions: [
+          TextButton(
+            onPressed: () {
+              playSound();
+              Navigator.pop(context);
+            },
+            child: Text('OK'),
+          ),
+        ],
+      );
+    },
+  );
+}
+

@@ -17,7 +17,7 @@ jawabanTujuh(int jawabanTujuh) {
     case 2:
       return jawaban2;
     case 3:
-      return jawaban3;
+      return jawaban3; //benar
     case 4:
       return jawaban4;
     case 5:

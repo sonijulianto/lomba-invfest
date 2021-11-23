@@ -10,7 +10,7 @@ textTutor(int index) {
   final String text5 =
       'Sejak ditemukannya kasus COVID-19 pertama kali, virus ini menular dengan sangat cepat dan telah menyebar ke hampir semua negara, termasuk Indonesia. Bahkan, penyebaran virus ini hanya berjalan dalam waktu beberapa bulan saja.';
   final String text6 =
-      'Penyebaran virus Corona membuat seluruh dunia bergerak sangat cepat, dibuktikan dengan kebijakan lockdoen yang dilakukan dalam rangka mencegah penyebaran virus Corona. Lockdoen adalah sebuah upaya penutupan akses di sebuah area, baik itu akses masuk maupun akses keluar.';
+      'Penyebaran virus Corona membuat seluruh dunia bergerak sangat cepat, dibuktikan dengan kebijakan lockdown yang dilakukan dalam rangka mencegah penyebaran virus Corona. Lockdown adalah sebuah upaya penutupan akses di sebuah area, baik itu akses masuk maupun akses keluar.';
   final String text7 =
       'Lockdown menjadi sebuah protokol darurat dan biasanya hanya dapat ditetapkan oleh otoritas pemerintah, diikuti dengan berbagai larangan seperti larangan mengadakan pertemuan yang melibatkan banyak orang, penutupan sekolah dan universitas hingga tempat umum. Beberapa negara yang memberlakukan lockdown adalah Tiongkok, Italia, Filipina dan Perancis.';
   final String text8 =

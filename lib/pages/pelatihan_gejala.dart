@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lomba/common/theme.dart';
+import 'package:lomba/functions/gambar-tutor-gejala.dart';
+import 'package:lomba/functions/sounds/sound.dart';
 import 'package:lomba/functions/text-tutor-gejala.dart';
 
 class PelatihanGejala extends StatefulWidget {
@@ -72,7 +74,7 @@ class _PelatihanGejalaState extends State<PelatihanGejala>
             ],
           ),
         ),
-        child: ListView(
+        child: Column(
           children: [
             ScaleTransition(
               scale: _animation2,
@@ -82,11 +84,36 @@ class _PelatihanGejalaState extends State<PelatihanGejala>
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      'assets/corona.jpg',
+                      gambarTutor(index),
                     ),
                     fit: BoxFit.cover,
                   ),
                 ),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(
+                vertical: 5,
+                horizontal: 10,
+              ),
+              decoration: BoxDecoration(
+                color: whiteColor,
+                // borderRadius: BorderRadius.vertical(
+                //   top: Radius.circular(17),
+                // ),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xff46C5FE),
+                    Color(0xff93D9F9),
+                  ],
+                ),
+              ),
+              child: Text(
+                textTutorGejala(index),
+                style: blackTextStyle.copyWith(),
               ),
             ),
             Spacer(),
@@ -123,8 +150,8 @@ class _PelatihanGejalaState extends State<PelatihanGejala>
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
+                              playSound();
                               index != 1 ? index-- : index -= 0;
-                              print(index);
                             });
                           },
                           child: Icon(
@@ -141,8 +168,8 @@ class _PelatihanGejalaState extends State<PelatihanGejala>
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
+                              playSound();
                               index != 20 ? index++ : index += 0;
-                              print(index);
                             });
                           },
                           child: Icon(
@@ -153,31 +180,6 @@ class _PelatihanGejalaState extends State<PelatihanGejala>
                         ),
                       ),
               ],
-            ),
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(
-                vertical: 5,
-                horizontal: 10,
-              ),
-              decoration: BoxDecoration(
-                color: whiteColor,
-                // borderRadius: BorderRadius.vertical(
-                //   top: Radius.circular(17),
-                // ),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color(0xff46C5FE),
-                    Color(0xff93D9F9),
-                  ],
-                ),
-              ),
-              child: Text(
-                textTutorGejala(index),
-                style: blackTextStyle.copyWith(),
-              ),
             ),
           ],
         ),
